@@ -114,7 +114,7 @@ export function Hero() {
       </button>
       {/* Navigation Buttons end */}
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl  sm:text-6xl font-bold  text-white mb-12">
           {slides[currentSlide].title}
         </h1>
@@ -151,6 +151,10 @@ export function Hero() {
         ))}
       </div>
       {/* Content end*/}
+    {/* Bouncing Down Icon */}
+    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+      <ChevronRight className="h-6 w-6 rotate-90 text-white" />
+    </div>
     </div>
   );
 }
