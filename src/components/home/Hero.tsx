@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const slides = [
   {
@@ -51,13 +51,16 @@ const slides = [
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+    if (!isPaused) {
+      const timer = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      }, 5000); 
+      return () => clearInterval(timer);
+    }
+  }, [isPaused, slides.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -66,17 +69,21 @@ export function Hero() {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
+  const handleSlideClick = () => {
+    setIsPaused(!isPaused);
+  };
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden" onClick={handleSlideClick}>
       {/* Background slider */}
+      
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 transition-all duration-10 ${
+            index === currentSlide ? "opacity-100 translate-x-0": "opacity-0 translate-x-full pointer-events-none"
           }`}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/90 via-blue-900/90 to-purple-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-gray-900/80 to-blue-900/90" />
           <img
             src={slide.image}
             alt={`Slide ${index + 1}`}
@@ -85,6 +92,8 @@ export function Hero() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtNi42MjcgMC0xMiA1LjM3My0xMiAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMi01LjM3My0xMi0xMi0xMnptMCAxOGMtMy4zMTQgMC02LTIuNjg2LTYtNnMyLjY4Ni02IDYtNiA2IDIuNjg2IDYgNi0yLjY4NiA2LTYgNnoiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4yIi8+PC9nPjwvc3ZnPg==')] opacity-10" />
         </div>
       ))}
+      
+      
       {/* Background slider end */}
       {/* Navigation Buttons */}
       <button
@@ -122,19 +131,18 @@ export function Hero() {
             View Research
           </a>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex-space-x-2">
+      </div>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentSlide(index)}
+              onClick={(e) =>{e.stopPropagation(); setCurrentSlide(index)}}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentSlide ? "bg-white" : "bg-gray/50"
+            index === currentSlide ? "bg-white" : "bg-gray-500"
               }`}
             ></button>
           ))}
         </div>
-      </div>
-
       {/* Content end*/}
     </div>
   );
