@@ -118,7 +118,7 @@ export function Footer() {
             </div>
 
             {/* Newsletter Signup */}
-            <div>
+            {/* <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Newsletter
               </h3>
@@ -135,7 +135,7 @@ export function Footer() {
                   Subscribe
                 </button>
               </form>
-            </div>
+            </div> */}
 
             {/* Social Media */}
             <div>
