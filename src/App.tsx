@@ -1,4 +1,5 @@
 import { Navbar } from "./components/layout/Navbar"
+import { Home } from "./pages/Home"
 
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+        <Home />
     </div>
   )
 }
