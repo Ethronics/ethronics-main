@@ -1,18 +1,17 @@
-# Use Node.js as base image
-FROM node:23-alpine
+# Use a full Node.js image instead of Alpine for stability
+FROM node:18 AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy only package.json and install dependencies
-COPY package.json package-lock.json ./
+# Copy package files
+COPY package.json package-lock.json* ./
+
+# Install dependencies
 RUN npm install --frozen-lockfile
 
-# Copy the rest of the project files
+# Copy app files
 COPY . .
 
-# Expose port (Vite default)
 EXPOSE 5173
 
-# Start Vite development server
 CMD ["npm", "run", "dev"]
