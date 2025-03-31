@@ -13,14 +13,21 @@ interface ContactFormProps {
   onSubmitSuccess: () => void;
 }
 
-const contactCategories = [
-  { value: "general", label: "General Inquiry" },
-  { value: "waiting-list", label: "Join Waiting List" },
-  { value: "careers", label: "Careers" },
-  { value: "research", label: "Research Collaboration" },
-  { value: "internships", label: "Internships" },
-  { value: "partnerships", label: "Partnerships" },
-  { value: "support", label: "Technical/Support" },
+interface CategoryInfo {
+  value: string;
+  label: string;
+  info: string;
+  action?: { text: string; href: string };
+}
+
+const contactCategories: CategoryInfo[] = [
+  { value: "general", label: "General Inquiry", info: "Have a question or suggestion? We’re here to assist with any inquiries you might have." },
+  { value: "waiting-list", label: "Join Waiting List", info: "Sign up to be notified about upcoming programs and opportunities at Ethronics." },
+  { value: "careers", label: "Careers", info: "Interested in joining our team? Submit your resume and let’s explore opportunities together.", action: { text: "Upload Resume", href: "/careers/upload" } },
+  { value: "research", label: "Research Collaboration", info: "Propose a research project or join our ongoing initiatives. Let’s innovate together!" },
+  { value: "internships", label: "Internships", info: "Apply for an internship to gain hands-on experience with cutting-edge technology." },
+  { value: "partnerships", label: "Partnerships", info: "Explore collaboration opportunities with Ethronics for mutual growth and impact." },
+  { value: "support", label: "Technical/Support", info: "Need help with our systems or services? Our support team is ready to assist." },
 ];
 
 export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => {
@@ -39,14 +46,62 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => 
     setFormData({ name: "", email: "", subject: "", message: "", category: "general" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleCategoryChange = (category: string) => {
+    setFormData((prev) => ({ ...prev, category }));
+  };
+
+  const selectedCategoryInfo = contactCategories.find((cat) => cat.value === formData.category);
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
       <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Send Us a Message</h2>
+      <div className="mb-6">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {contactCategories.map((cat) => (
+            <label
+              key={cat.value}
+              className={`flex items-center p-3 rounded-lg border cursor-pointer transition-colors ${
+                formData.category === cat.value
+                  ? "border-purple-600 bg-purple-50 dark:bg-purple-900 text-purple-600 dark:text-purple-300"
+                  : "border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+              }`}
+            >
+              <input
+                type="radio"
+                name="category"
+                value={cat.value}
+                checked={formData.category === cat.value}
+                onChange={() => handleCategoryChange(cat.value)}
+                className="hidden"
+              />
+              <span className="text-sm font-medium">{cat.label}</span>
+            </label>
+          ))}
+        </div>
+        <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            {selectedCategoryInfo?.label}
+          </h3>
+          <p className="text-sm text-gray-600 dark:text-gray-300">
+            {selectedCategoryInfo?.info}
+          </p>
+          {selectedCategoryInfo?.action && (
+            <a
+              href={selectedCategoryInfo.action.href}
+              className="mt-3 inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
+            >
+              {selectedCategoryInfo.action.text}
+            </a>
+          )}
+        </div>
+      </div>
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -78,39 +133,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => 
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-900 dark:text-white"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Category
-            </label>
-            <select
-              id="category"
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-900 dark:text-white"
-            >
-              {contactCategories.map((cat) => (
-                <option key={cat.value} value={cat.value}>
-                  {cat.label}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div>
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            Subject
+          </label>
+          {/* <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-900 dark:text-white"
+            required
+          /> */}
         </div>
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

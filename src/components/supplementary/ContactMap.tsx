@@ -15,7 +15,7 @@ export const ContactMap: React.FC = () => {
       </p>
       <div className="relative h-64 w-full rounded-lg overflow-hidden">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019112567398!2d39.26832631531631!3d8.541297993872054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMzInMjguNyJOIDM5wrAxNicyMC4wIkU!5e0!3m2!1sen!2sus!4v1698765432100!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.5112828403917!2d39.267459675060365!3d8.546733291496638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b1f90161a7a33%3A0x2a134c12a3453db3!2sAMG%20Adama%20Mall!5e0!3m2!1sen!2set!4v1743450010816!5m2!1sen!2set"
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -27,3 +27,4 @@ export const ContactMap: React.FC = () => {
     </div>
   );
 };
+
