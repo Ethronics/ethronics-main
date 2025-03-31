@@ -1,5 +1,4 @@
 import {
-  Factory,
   Settings,
   Users,
   Leaf,
@@ -20,7 +19,7 @@ const manufacturingFeatures = [
   //   title: 'Modern Facility',
   //   description: 'First-of-its-kind manufacturing facility in Ethiopia with smart technology integration',
   //   details: [
-  //     'Located in Addis Ababa Industrial Park',
+  //     'Located in Adama',
   //     'Solar-powered production line',
   //     'Digital monitoring systems'
   //   ]
