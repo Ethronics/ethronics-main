@@ -1,4 +1,5 @@
 import React from "react";
+import Faculty from "../../assets/images/fuculty-research.jpg"
 
 export const FacultyResearchSection: React.FC = () => (
   <section className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -22,7 +23,7 @@ export const FacultyResearchSection: React.FC = () => (
         </div>
         <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
           <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            src= {Faculty}
             alt="Faculty & Research"
             className="w-full h-full object-cover"
           />

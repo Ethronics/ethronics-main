@@ -135,45 +135,55 @@ export function Manufacturing() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-gray-900 ">
       <Hero slides={manufacturingSlides} buttons={manufacturingButtons} />
       {/* <Capabilities /> */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-24">
-        {manufacturingFeatures.map((feature, index) => (
-          <div
-            key={index}
-            className="group bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-          >
-            <div className="h-2 bg-gradient-to-r from-purple-500 to-indigo-500" />
-            <div className="p-6">
-              <div className="flex items-center mb-4">
-                <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
-                  {feature.icon}
+      <div className="bg-gray-900 p-24">
+        <h2 className="text-3xl font-bold text-center text-white mb-12">
+          Why Choose Our Manufacturing?
+        </h2>
+        <p className="text-lg text-gray-400 text-center mb-8">
+          Our manufacturing facility combines cutting-edge technology, local
+          expertise, and sustainable practices to deliver exceptional products
+          tailored for the Ethiopian market and beyond.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {manufacturingFeatures.map((feature, index) => (
+            <div
+              key={index}
+              className="group bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+            >
+              <div className="h-2 bg-gradient-to-r from-purple-500 to-indigo-500" />
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
+                    {feature.icon}
+                  </div>
+                  <h3 className="ml-3 text-xl font-semibold text-gray-900 dark:text-white">
+                    {feature.title}
+                  </h3>
                 </div>
-                <h3 className="ml-3 text-xl font-semibold text-gray-900 dark:text-white">
-                  {feature.title}
-                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {feature.description}
+                </p>
+                <ul className="space-y-2">
+                  {feature.details.map((detail, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center text-sm text-gray-600 dark:text-gray-300"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {feature.description}
-              </p>
-              <ul className="space-y-2">
-                {feature.details.map((detail, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-center text-sm text-gray-600 dark:text-gray-300"
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <Products />
-      <QualityAssurance />
+      {/* <QualityAssurance /> */}
       <Sustainability />
       <CallToAction />
     </div>

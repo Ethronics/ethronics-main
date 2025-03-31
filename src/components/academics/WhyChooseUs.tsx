@@ -9,13 +9,13 @@ interface Feature {
 
 const features: Feature[] = [
   { icon: <Award className="h-6 w-6" />, title: "Excellence in Education", description: "Our curriculum is designed by global experts to meet international standards while addressing Ethiopia’s unique needs." },
-  { icon: <MapPin className="h-6 w-6" />, title: "Strategic Location", description: "Located in Addis Ababa, our future campus will connect you to Ethiopia’s growing tech ecosystem." },
+  { icon: <MapPin className="h-6 w-6" />, title: "Strategic Location", description: "Located in Adama, our future campus will connect you to Ethiopia’s growing tech ecosystem." },
   { icon: <Globe className="h-6 w-6" />, title: "Global Perspective", description: "Partnerships with leading universities worldwide bring a global outlook to your education." },
   { icon: <Briefcase className="h-6 w-6" />, title: "Career Readiness", description: "Our programs equip you with skills that employers and innovators demand." },
 ];
 
 export const WhyChooseUs: React.FC = () => (
-  <section className="py-20 bg-gray-50 dark:bg-gray-900">
+  <section className="py-16 bg-gray-50 dark:bg-gray-900">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Choose Us?</h2>

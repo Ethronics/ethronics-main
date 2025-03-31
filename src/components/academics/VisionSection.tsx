@@ -1,7 +1,8 @@
 import React from "react";
+import Vision from "../../assets/images/vision.jpg"; 
 
 export const VisionSection: React.FC = () => (
-  <section className="py-20 bg-white dark:bg-gray-800">
+  <section className="py-16 bg-white dark:bg-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
@@ -17,7 +18,7 @@ export const VisionSection: React.FC = () => (
         </div>
         <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
           <img
-            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            src={Vision}
             alt="Our Vision"
             className="w-full h-full object-cover"
           />
