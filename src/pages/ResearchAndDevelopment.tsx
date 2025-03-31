@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Hero } from "../components/common/Hero";
 import { researchFeatures, projects } from "../data/homeData";
 import { CallToAction } from "../components/home/Cta";
@@ -14,13 +14,15 @@ const researchSlides: ResearchSlide[] = [
     title: "Pioneering Research from Ethiopia",
     description:
       "Ethronics is driving technological breakthroughs in robotics, AI, cybersecurity, quantum computing, and blockchain. Our R&D efforts blend local ingenuity with global ambition, creating solutions that redefine industries.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=2070&q=80",
+    image:
+      "https://images.unsplash.com/photo-1716436329475-4c55d05383bb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaCUyMGlubm92YXRpb258ZW58MHx8MHx8fDA%3D",
   },
   {
     title: "Innovating for a Smarter Future",
     description:
       "From adaptive robotics to quantum research, we’re exploring the frontiers of technology to solve real-world challenges—starting in Ethiopia and impacting the world.",
-    image: "https://images.unsplash.com/photo-1591306208574-969f12f1ebfe?auto=format&fit=crop&w=2070&q=80",
+    image:
+      "https://images.unsplash.com/photo-1591306208574-969f12f1ebfe?auto=format&fit=crop&w=2070&q=80",
   },
 ];
 
@@ -30,6 +32,10 @@ const researchButtons = [
 ];
 
 export const ResearchAndDevelopment: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top on page load
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <Hero slides={researchSlides} buttons={researchButtons} />
@@ -42,7 +48,9 @@ export const ResearchAndDevelopment: React.FC = () => {
               Our Research Focus
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              At Ethronics, our R&D team is pushing the boundaries of technology across five key areas. Each domain reflects our commitment to solving global challenges with Ethiopian innovation at the core.
+              At Ethronics, our R&D team is pushing the boundaries of technology
+              across five key areas. Each domain reflects our commitment to
+              solving global challenges with Ethiopian innovation at the core.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -65,7 +73,6 @@ export const ResearchAndDevelopment: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* Current Projects */}
       <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +81,9 @@ export const ResearchAndDevelopment: React.FC = () => {
               Current R&D Projects
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our ongoing projects showcase the practical applications of our research. From smart manufacturing to urban solutions, these initiatives highlight Ethronics’ role in shaping the future.
+              Our ongoing projects showcase the practical applications of our
+              research. From smart manufacturing to urban solutions, these
+              initiatives highlight Ethronics’ role in shaping the future.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -105,7 +114,9 @@ export const ResearchAndDevelopment: React.FC = () => {
                     {project.progress}% Complete
                   </p>
                   <a
-                    href={`/research/projects/${project.title.toLowerCase().replace(" ", "-")}`}
+                    href={`/research/projects/${project.title
+                      .toLowerCase()
+                      .replace(" ", "-")}`}
                     className="mt-4 inline-block px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
                   >
                     Learn More
@@ -116,7 +127,6 @@ export const ResearchAndDevelopment: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* Collaboration Opportunities */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -124,7 +134,10 @@ export const ResearchAndDevelopment: React.FC = () => {
             Collaborate With Us
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Ethronics welcomes partnerships with researchers, institutions, and industry leaders. Whether you’re a student, academic, or professional, join us in advancing technology from Ethiopia to the world.
+            Ethronics welcomes partnerships with researchers, institutions, and
+            industry leaders. Whether you’re a student, academic, or
+            professional, join us in advancing technology from Ethiopia to the
+            world.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <div className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg">
@@ -132,7 +145,8 @@ export const ResearchAndDevelopment: React.FC = () => {
                 For Researchers
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-                Contribute to groundbreaking projects in AI, quantum computing, and more. Share your expertise and innovate with us.
+                Contribute to groundbreaking projects in AI, quantum computing,
+                and more. Share your expertise and innovate with us.
               </p>
               <a
                 href="/research/join"
@@ -146,7 +160,8 @@ export const ResearchAndDevelopment: React.FC = () => {
                 For Partners
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
-                Collaborate with Ethronics to co-develop solutions, fund research, or bring our innovations to market.
+                Collaborate with Ethronics to co-develop solutions, fund
+                research, or bring our innovations to market.
               </p>
               <a
                 href="/contact"

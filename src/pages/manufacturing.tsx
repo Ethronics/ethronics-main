@@ -12,6 +12,7 @@ import { Products } from "../components/manufacturing/Products";
 import { QualityAssurance } from "../components/manufacturing/QualityAssurance";
 import { Sustainability } from "../components/manufacturing/Sustainability";
 import { Hero } from "../components/common/Hero";
+import { useEffect } from "react";
 
 const manufacturingFeatures = [
   // {
@@ -87,8 +88,25 @@ const manufacturingSlides = [
         <span className="block">from Ethiopia</span>
       </>
     ),
-    description: "Delivering world-class products through innovative manufacturing techniques.",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    description:
+      "Delivering world-class products through innovative manufacturing techniques.",
+    image:
+      "https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFudWZhY3R1cmV8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    title: (
+      <>
+        <span className="block">Innovating </span>
+        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+          Manufacturing
+        </span>
+        <span className="block">in Ethiopia</span>
+      </>
+    ),
+    description:
+      "Transforming local manufacturing through cutting-edge technology and skilled workforce.",
+    image:
+      "https://images.unsplash.com/photo-1640517526259-8e5aacbebf71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2FyZWhvdXNlJTIwZHJvbmVzfGVufDB8fDB8fHww",
   },
   {
     title: (
@@ -100,8 +118,10 @@ const manufacturingSlides = [
         <span className="block">in Africa</span>
       </>
     ),
-    description: "Harnessing automation and technology for scalable, efficient manufacturing.",
-    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2020&q=80",
+    description:
+      "Harnessing automation and technology for scalable, efficient manufacturing.",
+    image:
+      "https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFudWZhY3R1cmV8ZW58MHx8MHx8fDA%3D",
   },
 ];
 
@@ -109,11 +129,14 @@ const manufacturingButtons = [
   { text: "Discover Capabilities", href: "#capabilities", primary: true },
 ];
 
-
 export function Manufacturing() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top on page load
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900">
-      <Hero slides={manufacturingSlides} buttons={manufacturingButtons} /> 
+      <Hero slides={manufacturingSlides} buttons={manufacturingButtons} />
       {/* <Capabilities /> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-24">
         {manufacturingFeatures.map((feature, index) => (

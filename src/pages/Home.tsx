@@ -5,6 +5,7 @@ import { Hero } from "../components/common/Hero";
 import { Partnerships } from "../components/home/Partnerships";
 // import { Projects } from "../components/home/Projects";
 import { Solutions } from "../components/home/Solutions";
+import { useEffect } from "react";
 
 const homeSlides = [
   {
@@ -60,16 +61,19 @@ const homeButtons = [
 ];
 
 export function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top on page load
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Hero slides={homeSlides} buttons={homeButtons} />    
+      <Hero slides={homeSlides} buttons={homeButtons} />
       <Features />
-      <Solutions/>
+      <Solutions />
       {/* <Projects/> */}
-      <Partnerships/>
+      <Partnerships />
       <Gallery />
       <CallToAction />
-      
     </div>
   );
 }

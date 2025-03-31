@@ -43,6 +43,54 @@ export const programData: ProgramLevel[] = [
           ctaText: "Ready to kickstart your technical career? Join the waitlist today!",
         },
       },
+      {
+        name: "Electrical Engineering Technology",
+        duration: "1-2 years",
+        description: "Core skills in electrical systems and circuits",
+        highlights: ["Circuit Design", "Power Systems", "Instrumentation"],
+        details: {
+          overview:
+            "Learn the fundamentals of electrical engineering with a focus on practical applications. This program prepares you for roles in power systems, circuit design, and instrumentation.",
+          outcomes: [
+            "Design and troubleshoot electrical circuits.",
+            "Work in power generation and distribution.",
+            "Gain hands-on experience with modern tools.",
+          ],
+          ctaText: "Start your journey in electrical engineering today!",
+        },
+      },
+      {
+        name: "Electrical Installation",
+        duration: "1 year",
+        description: "Practical training in electrical wiring and systems",
+        highlights: ["Residential Wiring", "Safety Standards", "System Maintenance"],
+        details: {
+          overview:
+            "This program provides hands-on training in electrical installation, focusing on residential and commercial wiring, safety standards, and system maintenance.",
+          outcomes: [
+            "Install and maintain electrical systems.",
+            "Ensure compliance with safety regulations.",
+            "Prepare for roles in construction and maintenance.",
+          ],
+          ctaText: "Build a solid foundation in electrical installation—enroll now!",
+        },
+      },
+      {
+        name: "Web Development",
+        duration: "1 year",
+        description: "Learn to build modern websites and web applications",
+        highlights: ["HTML & CSS", "JavaScript", "Responsive Design"],
+        details: {
+          overview:
+            "This program teaches the fundamentals of web development, including HTML, CSS, JavaScript, and responsive design. Gain the skills to create modern, user-friendly websites.",
+          outcomes: [
+            "Develop responsive websites from scratch.",
+            "Understand front-end development best practices.",
+            "Prepare for entry-level roles in web development.",
+          ],
+          ctaText: "Start your web development journey today!",
+        },
+      },
     ],
   },
   {
@@ -64,6 +112,22 @@ export const programData: ProgramLevel[] = [
             "Launch a career as a software engineer or AI specialist.",
           ],
           ctaText: "Shape the digital future—join our waitlist now!",
+        },
+      },
+      {
+        name: "Information Systems",
+        duration: "4 years",
+        description: "Bridging business and technology",
+        highlights: ["Database Management", "Business Analytics", "IT Project Management"],
+        details: {
+          overview:
+            "This program focuses on the intersection of business and technology, equipping you with the skills to manage and analyze information systems effectively.",
+          outcomes: [
+            "Design and manage enterprise-level information systems.",
+            "Analyze data to drive business decisions.",
+            "Lead IT projects in diverse industries.",
+          ],
+          ctaText: "Transform businesses with technology—enroll today!",
         },
       },
     ],
@@ -89,6 +153,22 @@ export const programData: ProgramLevel[] = [
           ctaText: "Become an AI pioneer—sign up for updates!",
         },
       },
+      {
+        name: "MSc in Data Science",
+        duration: "2 years",
+        description: "Advanced data analysis and visualization",
+        highlights: ["Big Data", "Predictive Analytics", "Data Visualization"],
+        details: {
+          overview:
+            "Master the art of data science with a program that focuses on big data, predictive analytics, and visualization techniques. Prepare for a career in data-driven decision-making.",
+          outcomes: [
+            "Analyze and interpret complex datasets.",
+            "Develop predictive models for business insights.",
+            "Visualize data to communicate findings effectively.",
+          ],
+          ctaText: "Lead the data revolution—apply now!",
+        },
+      },
     ],
   },
   {
@@ -110,6 +190,22 @@ export const programData: ProgramLevel[] = [
             "Lead innovation in Ethiopia and beyond.",
           ],
           ctaText: "Ready to redefine tech? Join our research community!",
+        },
+      },
+      {
+        name: "PhD in Cybersecurity",
+        duration: "4 years",
+        description: "Advanced research in securing digital systems",
+        highlights: ["Cryptography", "Network Security", "Cyber Threat Analysis"],
+        details: {
+          overview:
+            "This program focuses on advanced research in cybersecurity, equipping you to tackle emerging threats and secure digital infrastructures.",
+          outcomes: [
+            "Develop innovative solutions to cybersecurity challenges.",
+            "Lead research in cryptography and threat analysis.",
+            "Shape the future of secure digital systems.",
+          ],
+          ctaText: "Secure the digital world—join our PhD program!",
         },
       },
     ],

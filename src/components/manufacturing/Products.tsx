@@ -47,7 +47,8 @@ const products = [
     description: "IoT security system.",
     image:
       "https://images.unsplash.com/photo-1559669797-7c99e15e2b0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmFycmllcnxlbnwwfHwwfHx8MA%3D%3D",
-  },
+    progress: 90,
+    },
   {
     name: "RoboArm",
     description:

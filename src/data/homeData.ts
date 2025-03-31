@@ -1,6 +1,5 @@
 import { Rocket, Globe, Users, Brain, Shield, Cpu, Database, Notebook as Robot } from "lucide-react";
 import React from "react";
-import { JSX } from "react";
 
 // Define interfaces without JSX
 export interface Slide {

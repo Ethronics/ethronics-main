@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Solution, solutionsData } from "../../data/homeData";
+import { Solution } from "../../data/homeData";
 
 interface ScrollPositions {
   education: number;
