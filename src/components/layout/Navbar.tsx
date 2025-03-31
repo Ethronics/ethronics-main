@@ -16,9 +16,9 @@ const navItems: NavItem[] = [
 // Supplementary navigation items
 const supplementaryItems: NavItem[] = [
   { title: "Contact", href: "/contact" },
-  { title: "Library", href: "/library" },
-  { title: "Events", href: "/events" },
-  { title: "Blog", href: "/blog" },
+  { title: "Library", href: "#" },
+  { title: "Events", href: "#" },
+  { title: "Blog", href: "#" },
 ];
 
 export function Navbar() {

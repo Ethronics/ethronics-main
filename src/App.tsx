@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";// Placeholder
 import { Manufacturing } from "./pages/manufacturing";
 import { Academics } from "./pages/Academics";
 import { ResearchAndDevelopment } from "./pages/ResearchAndDevelopment";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/research" element={<Research />} /> */}
             <Route path="/manufacturing" element={<Manufacturing />} />
             <Route path="/academics" element={<Academics />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/research-development" element={<ResearchAndDevelopment />} />
           </Routes>
         </main>
