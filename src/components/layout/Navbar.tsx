@@ -9,7 +9,7 @@ import Ethronics from "../../assets/ethronics.png";
 const navItems: NavItem[] = [
   { title: 'Home', href: '/' },
   { title: 'Academics', href: '/academics' },
-  { title: 'Research & Development', href: '/research' },
+  { title: 'Research & Development', href: '/research-development' },
   { title: 'Manufacturing', href: '/manufacturing' },
 ];
 
