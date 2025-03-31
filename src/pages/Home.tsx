@@ -1,6 +1,7 @@
 import { CallToAction } from "../components/home/Cta";
 import { Features } from "../components/home/Features";
-import { Hero } from "../components/home/Hero";
+import { Gallery } from "../components/home/Gallery";
+import { Hero } from "../components/common/Hero";
 import { Partnerships } from "../components/home/Partnerships";
 // import { Projects } from "../components/home/Projects";
 import { Solutions } from "../components/home/Solutions";
@@ -66,6 +67,7 @@ export function Home() {
       <Solutions/>
       {/* <Projects/> */}
       <Partnerships/>
+      <Gallery />
       <CallToAction />
       
     </div>

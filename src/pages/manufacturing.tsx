@@ -12,7 +12,7 @@ import { CallToAction } from "../components/manufacturing/CallToAction";
 import { Products } from "../components/manufacturing/Products";
 import { QualityAssurance } from "../components/manufacturing/QualityAssurance";
 import { Sustainability } from "../components/manufacturing/Sustainability";
-import { Hero } from "../components/home/Hero";
+import { Hero } from "../components/common/Hero";
 
 const manufacturingFeatures = [
   // {
