@@ -132,6 +132,7 @@ export const programData: ProgramLevel[] = [
       },
     ],
   },
+
   {
     level: "Postgrad",
     icon: React.createElement(Brain, { className: "w-8 h-8" }),
@@ -199,6 +200,61 @@ export const programData: ProgramLevel[] = [
             "Shape the future of secure digital systems.",
           ],
           ctaText: "Secure the digital world—join our PhD program!",
+        },
+      },
+    ],
+  },
+  {
+    level: "Professional Training",
+    icon: React.createElement(Beaker, { className: "w-8 h-8" }),
+    description: "Short-term, intensive training for career advancement",
+    programs: [
+      {
+        name: "Project Management Professional (PMP)",
+        duration: "3 months",
+        description: "Comprehensive training for project management certification",
+        highlights: ["Project Planning", "Risk Management", "Agile Methodologies"],
+        details: {
+          overview:
+            "This program prepares you for the PMP certification with in-depth training in project planning, risk management, and agile methodologies. Gain the skills to lead projects successfully.",
+          outcomes: [
+            "Earn the globally recognized PMP certification.",
+            "Master project management tools and techniques.",
+            "Advance your career in project management.",
+          ],
+          ctaText: "Take the next step in your career—enroll in PMP training today!",
+        },
+      },
+      {
+        name: "Certified Data Analyst",
+        duration: "4 months",
+        description: "Hands-on training in data analysis and visualization",
+        highlights: ["Excel & SQL", "Data Cleaning", "Visualization with Power BI"],
+        details: {
+          overview:
+            "Learn the essential skills for data analysis, including data cleaning, SQL, and visualization tools like Power BI. This program is designed for professionals looking to enhance their analytical capabilities.",
+          outcomes: [
+            "Analyze and interpret data effectively.",
+            "Create compelling visualizations to communicate insights.",
+            "Prepare for roles in data analysis and business intelligence.",
+          ],
+          ctaText: "Boost your data skills—join the Certified Data Analyst program today!",
+        },
+      },
+      {
+        name: "Digital Marketing Specialist",
+        duration: "2 months",
+        description: "Master digital marketing strategies and tools",
+        highlights: ["SEO & SEM", "Social Media Marketing", "Email Campaigns"],
+        details: {
+          overview:
+            "This program provides practical training in digital marketing, covering SEO, SEM, social media, and email campaigns. Learn to create impactful marketing strategies for the digital age.",
+          outcomes: [
+            "Develop and execute effective digital marketing campaigns.",
+            "Optimize websites for search engines and manage ad campaigns.",
+            "Enhance brand presence on social media platforms.",
+          ],
+          ctaText: "Become a digital marketing expert—enroll now!",
         },
       },
     ],

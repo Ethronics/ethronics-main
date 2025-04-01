@@ -43,7 +43,7 @@ export const Academics: React.FC = () => {
   ];
 
   const heroButtons = [
-    { text: "Join Waitlist", href: "#waitlist", primary: true },
+    { text: "Join Waitlist", href: "/contact", primary: true },
     { text: "Explore Programs", href: "#programs" },
   ];
 

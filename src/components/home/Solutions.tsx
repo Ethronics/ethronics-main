@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Solution } from "../../data/homeData";
-
+import Tvet from "../../assets/images/tvet.jpg"; 
+import Undergrad from "../../assets/images/undergrad.jpg"; 
 interface ScrollPositions {
   education: number;
   manufacturing: number;
@@ -41,56 +42,56 @@ export const Solutions: React.FC = () => {
         description:
           "Dive into the world of automation with our intensive Robotics Bootcamp. This hands-on program equips students with practical skills in designing, programming, and operating robotic systems, preparing them for careers in Ethiopia’s growing tech sector.",
         image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Join Now", href: "/academics/robotics-bootcamp" },
+        action: { text: "Join Now", href: "/contact" },
       },
       {
         title: "AI Curriculum",
         description:
           "Our comprehensive AI Curriculum blends theory and practice, covering machine learning, neural networks, and data science. Designed for aspiring innovators, this program empowers students to build intelligent solutions that address real-world challenges.",
         image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Explore Courses", href: "/academics/ai-curriculum" },
+        action: { text: "Explore Courses", href: "/academics" },
       },
       {
         title: "Student Mentorship",
         description:
           "Through personalized guidance, our mentorship program connects students with industry experts and innovators. We provide the support and insights needed to turn ideas into impactful projects, fostering Ethiopia’s next generation of tech leaders.",
         image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Apply for Mentorship", href: "/academics/mentorship" },
+        action: { text: "Apply for Mentorship", href: "/contact" },
       },
       {
         title: "Tech Scholarships",
         description:
           "We believe talent should never be limited by resources. Our Tech Scholarships provide funding and opportunities for deserving students to pursue cutting-edge education in robotics, AI, and manufacturing, ensuring access to world-class learning.",
         image: "https://media.istockphoto.com/id/2165826700/photo/a-black-graduation-cap-on-a-stack-of-colorful-books.webp?a=1&b=1&s=612x612&w=0&k=20&c=FHZIb_cslZXWvP7P_iN6pOwII8uI0QjtW2HKH82yfLc=",
-        action: { text: "Apply Now", href: "/academics/scholarships" },
+        action: { text: "Apply Now", href: "/contact" },
       },
       {
         title: "TVET Programs",
         description:
           "Our TVET (Technical and Vocational Education and Training) programs focus on practical skills development in areas like robotics, AI, and manufacturing. These programs are designed to empower individuals with job-ready expertise.",
-        image: "https://images.unsplash.com/photo-1581091870622-1c6d5f6f8002?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Learn More", href: "/academics/tvet-programs" },
+        image: Tvet,
+        action: { text: "Learn More", href: "/academics" },
       },
       {
         title: "Undergraduate Programs",
         description:
           "Our undergraduate programs offer a strong foundation in technology and innovation, preparing students for impactful careers in fields like AI, robotics, and global tech solutions.",
-        image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Explore Programs", href: "/academics/undergraduate" },
+        image: Undergrad,
+        action: { text: "Explore Programs", href: "/academics" },
       },
       {
         title: "Postgraduate Studies",
         description:
           "Advance your expertise with our postgraduate studies in cutting-edge fields. These programs are tailored for professionals and researchers aiming to lead in innovation and technology.",
         image: "https://images.unsplash.com/photo-1584697964154-3c1a4c2a5c8b?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Apply Now", href: "/academics/postgraduate" },
+        action: { text: "Apply Now", href: "/academics" },
       },
       {
         title: "Professional Training",
         description:
           "Our professional training programs are designed for individuals and organizations seeking to upskill in areas like AI, robotics, and smart manufacturing. Stay ahead in the fast-evolving tech landscape.",
         image: "https://images.unsplash.com/photo-1596495577886-d920f1a5015e?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Get Trained", href: "/academics/training" },
+        action: { text: "Get Trained", href: "/academics" },
       },
     ],
     manufacturing: [
@@ -99,21 +100,21 @@ export const Solutions: React.FC = () => {
         description:
           "Revolutionize production with our IoT-enabled Smart Factory Systems. These solutions integrate sensors, data analytics, and automation to optimize efficiency, reduce waste, and enhance manufacturing precision—paving the way for Ethiopia’s industrial future.",
         image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Learn More", href: "/manufacturing/smart-factory" },
+        action: { text: "Learn More", href: "/manufacturing" },
       },
       {
         title: "Gate Barrier Tech",
         description:
           "Enhance facility security with our Gate Barrier Technology. This automated system combines advanced sensors and robust design to provide reliable access control, ideal for industrial sites, campuses, and urban infrastructure projects.",
         image: "https://images.unsplash.com/photo-1588362951121-3ee319b018b2?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Request Demo", href: "/manufacturing/gate-barrier" },
+        action: { text: "Request Demo", href: "/contact" },
       },
       {
         title: "Adaptive Robotics",
         description:
           "Our Adaptive Robotics solutions bring flexibility to modern manufacturing. These intelligent robots adjust to varying tasks and environments, boosting productivity and innovation in Ethiopia’s factories and beyond.",
         image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=60",
-        action: { text: "See in Action", href: "/manufacturing/adaptive-robotics" },
+        action: { text: "See in Action", href: "/contact" },
       },
     ],
     globalTech: [
@@ -122,35 +123,35 @@ export const Solutions: React.FC = () => {
         description:
           "Our Blockchain Platforms offer secure, transparent transaction systems for industries like finance, supply chain, and healthcare. Built with scalability in mind, they empower businesses worldwide with Ethiopian-developed technology.",
         image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Discover More", href: "/global-tech/blockchain" },
+        action: { text: "Discover More", href: "/contact" },
       },
       {
         title: "AI Traffic Control",
         description:
           "Transform urban mobility with our AI Traffic Control systems. Using real-time data and machine learning, this solution optimizes traffic flow, reduces congestion, and enhances safety—designed in Ethiopia for global cities.",
         image: "https://images.unsplash.com/photo-1584649525122-8d6895492a5d?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Learn How", href: "/global-tech/ai-traffic" },
+        action: { text: "Learn How", href: "/contact" },
       },
       {
         title: "Quantum Research",
         description:
           "We’re pushing the boundaries of computing with Quantum Research. This initiative explores next-generation processing power to tackle complex global challenges, positioning Ethiopia as a leader in futuristic tech.",
         image: "https://images.unsplash.com/photo-1591306208574-969f12f1ebfe?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Join Research", href: "/global-tech/quantum" },
+        action: { text: "Join Research", href: "/contact" },
       },
       {
         title: "Cybersecurity Innovations",
         description:
           "Protect digital assets with our Cybersecurity Innovations. From advanced encryption to threat detection, we’re building robust frameworks to secure data and systems in an increasingly connected world.",
         image: "https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Explore Solutions", href: "/global-tech/cybersecurity" },
+        action: { text: "Explore Solutions", href: "/contact" },
       },
       {
         title: "Global Tech Partnerships",
         description:
           "Through strategic collaborations, our Global Tech Partnerships amplify innovation. We work with international leaders to co-develop projects that deliver measurable impact, rooted in Ethiopian ingenuity.",
         image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Partner With Us", href: "/global-tech/partnerships" },
+        action: { text: "Partner With Us", href: "/contact" },
       },
     ],
   };
@@ -180,8 +181,8 @@ export const Solutions: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-gray-50 dark:bg-gray-900 px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Solutions We’re Building and Providing

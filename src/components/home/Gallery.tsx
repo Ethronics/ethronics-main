@@ -1,63 +1,53 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-
+import Memorandum from "../../assets/images/memorandum.jpg";
+import Memorandum2 from "../../assets/images/agreed_memorandum.jpg";
+import Cto from "../../assets/images/joe_conference.jpg";
+import Ceo from "../../assets/images/CEO.jpg";
+import CtoPresentation from "../../assets/images/joe_presentation.png";
 interface GalleryItem {
   title: string;
   description: string;
-  image: string;
+  images: string[];
   category: "education" | "research" | "manufacturing";
 }
+
 
 export const Gallery: React.FC = () => {
   const galleryItems: GalleryItem[] = [
     {
-      title: "Robotics Workshop",
+      title: "Memorandum with Arsi University",
       description:
-        "Students at our Robotics Bootcamp assemble and program their first autonomous robots, blending theory with hands-on experience.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+        "Ethronics signed a memorandum of understanding with Arsi University to collaborate on innovative research and educational programs.",
+      images: [Memorandum, Memorandum2],
       category: "education",
     },
     {
-      title: "AI Research Lab",
+      title: "Robotics in AI: Redefining Human Potential",
       description:
-        "Our team tests cutting-edge AI algorithms in speech recognition and computer vision, pushing the boundaries of innovation.",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-      category: "research",
-    },
-    {
-      title: "Smart Factory Prototype",
-      description:
-        "A glimpse of our IoT-enabled Smart Factory System in action, optimizing production with real-time data and automation.",
-      image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=800&q=80",
-      category: "manufacturing",
-    },
-    {
-      title: "Student Innovation Day",
-      description:
-        "Ethronics hosts an annual event where students showcase their tech projects, from robotics to blockchain solutions.",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+        "Our CEO presented groundbreaking insights on how robotics in AI is reshaping the future and redefining human potential at the conference.",
+      images: [
+        Ceo,
+        "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80",
+      ],
       category: "education",
     },
     {
-      title: "Gate Barrier Installation",
+      title: "Artificial Perception: Exploring the Senses of Sight and Perception",
       description:
-        "Our Gate Barrier Tech deployed at a local facility, enhancing security with automated precision and durability.",
-      image: "https://images.unsplash.com/photo-1588362951121-3ee319b018b2?auto=format&fit=crop&w=800&q=80",
-      category: "manufacturing",
-    },
-    {
-      title: "Quantum Computing Experiment",
-      description:
-        "Exploring the future of computation with our Quantum Research team, tackling complex problems with next-gen tech.",
-      image: "https://images.unsplash.com/photo-1591306208574-969f12f1ebfe?auto=format&fit=crop&w=800&q=80",
+        "Our CTO shared innovative research on artificial perception, delving into the senses of sight and perception at the conference.",
+      images: [
+        Cto,
+        CtoPresentation,
+      ],
       category: "research",
     },
   ];
 
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const cardWidth = 320; // w-80 in Tailwind (80 * 4px)
-  const visibleCards = Math.floor(window.innerWidth / cardWidth) || 1; // Dynamic based on screen width
+  const cardWidth = 320;
+  const visibleCards = Math.floor(window.innerWidth / cardWidth) || 1;
 
   const scrollLeft = () => {
     setScrollPosition((prev) => Math.min(prev + cardWidth, 0));
@@ -76,7 +66,8 @@ export const Gallery: React.FC = () => {
             Our Journey in Pictures
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Explore the moments that define Ethronics—where education inspires, research innovates, and manufacturing transforms. This gallery captures our work in action, from classrooms to labs to production lines.
+            Explore the moments that define Ethronics—where education inspires,
+            research innovates, and manufacturing transforms.
           </p>
         </div>
 
@@ -85,23 +76,33 @@ export const Gallery: React.FC = () => {
           {galleryItems.map((item, index) => (
             <div
               key={index}
-              className="relative group bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer"
+              className="relative bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={() => setSelectedItem(item)}
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <div className="text-white">
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm line-clamp-2">{item.description}</p>
-                </div>
+              <div className="relative grid grid-cols-2 gap-1 p-2 h-64 overflow-hidden group">
+                {item.images.map((image, imgIndex) => (
+                  <div key={imgIndex} className="relative">
+                    <img
+                      src={image}
+                      alt={`${item.title} - ${imgIndex + 1}`}
+                      className="w-full h-full object-cover rounded-md transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gray-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-2">
+                      <p className="text-xs text-white text-center line-clamp-3">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+                <span className="absolute top-2 right-2 bg-purple-600 text-white text-xs font-medium px-2 py-1 rounded-full z-10">
+                  {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                </span>
               </div>
-              <span className="absolute top-2 right-2 bg-purple-600 text-white text-xs font-medium px-2 py-1 rounded-full">
-                {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
-              </span>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {item.title}
+                </h3>
+              </div>
             </div>
           ))}
         </div>
@@ -124,16 +125,26 @@ export const Gallery: React.FC = () => {
                 <div
                   key={index}
                   className="w-80 flex-shrink-0 bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg"
+                  onClick={() => setSelectedItem(item)}
                 >
-                  <img src={item.image} alt={item.title} className="w-full h-56 object-cover" />
-                  <div className="p-4">
+                  <div className="grid grid-cols-2 gap-1 p-2 h-56 overflow-hidden hover:text-underline">
+                    {item.images.map((image, imgIndex) => (
+                      <img
+                        key={imgIndex}
+                        src={image}
+                        alt={`${item.title} - ${imgIndex + 1}`}
+                        className="w-full h-full object-cover rounded-md"
+                      />
+                    ))}
+                  </div>
+                  <div className="p-4 relative">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                       {item.title}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
                       {item.description}
                     </p>
-                    <span className="inline-block mt-2 bg-purple-600 text-white text-xs font-medium px-2 py-1 rounded-full">
+                    <span className="absolute top-2 right-2 bg-purple-600 text-white text-xs font-medium px-2 py-1 rounded-full">
                       {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
                     </span>
                   </div>
@@ -158,7 +169,7 @@ export const Gallery: React.FC = () => {
           onClick={() => setSelectedItem(null)}
         >
           <div
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-2xl w-full p-6 relative animate-fade-in"
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-2xl w-full p-6 relative animate-fade-in max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -167,14 +178,19 @@ export const Gallery: React.FC = () => {
             >
               <X className="w-6 h-6" />
             </button>
-            <img
-              src={selectedItem.image}
-              alt={selectedItem.title}
-              className="w-full h-64 object-cover rounded-lg mb-4"
-            />
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               {selectedItem.title}
             </h3>
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              {selectedItem.images.map((image, idx) => (
+                <img
+                  key={idx}
+                  src={image}
+                  alt={`${selectedItem.title} - ${idx + 1}`}
+                  className="w-full h-40 object-cover rounded-lg"
+                />
+              ))}
+            </div>
             <p className="text-gray-600 dark:text-gray-300 mb-4">{selectedItem.description}</p>
             <span className="inline-block bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full">
               {selectedItem.category.charAt(0).toUpperCase() + selectedItem.category.slice(1)}
