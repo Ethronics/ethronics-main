@@ -6,6 +6,9 @@ import Undergrad from "../../assets/images/undergrad.jpg";
 import Postgrad from "../../assets/images/postgrad.jpg";
 import Training from "../../assets/images/training.jpg";
 import Bootcamp from "../../assets/images/bootcamp.jpg";
+import AICurriculum from "../../assets/images/ai-curriculum.jpg";
+import Mentor from "../../assets/images/mentor.jpg";
+import Scholarship from "../../assets/images/scholarship.jpg";
 interface ScrollPositions {
   education: number;
   manufacturing: number;
@@ -51,21 +54,21 @@ export const Solutions: React.FC = () => {
         title: "AI Curriculum",
         description:
           "Our comprehensive AI Curriculum blends theory and practice, covering machine learning, neural networks, and data science. Designed for aspiring innovators, this program empowers students to build intelligent solutions that address real-world challenges.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=60",
+        image: AICurriculum,
         action: { text: "Explore Courses", href: "/academics" },
       },
       {
         title: "Student Mentorship",
         description:
           "Through personalized guidance, our mentorship program connects students with industry experts and innovators. We provide the support and insights needed to turn ideas into impactful projects, fostering Ethiopia’s next generation of tech leaders.",
-        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=60",
+        image: Mentor,
         action: { text: "Apply for Mentorship", href: "/contact" },
       },
       {
         title: "Tech Scholarships",
         description:
           "We believe talent should never be limited by resources. Our Tech Scholarships provide funding and opportunities for deserving students to pursue cutting-edge education in robotics, AI, and manufacturing, ensuring access to world-class learning.",
-        image: "https://media.istockphoto.com/id/2165826700/photo/a-black-graduation-cap-on-a-stack-of-colorful-books.webp?a=1&b=1&s=612x612&w=0&k=20&c=FHZIb_cslZXWvP7P_iN6pOwII8uI0QjtW2HKH82yfLc=",
+        image: Scholarship,
         action: { text: "Apply Now", href: "/contact" },
       },
       {

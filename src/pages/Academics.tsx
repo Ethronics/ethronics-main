@@ -52,7 +52,7 @@ export const Academics: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-16">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Hero slides={heroSlides} buttons={heroButtons} />
       <WhyChooseUs />
       <VisionSection />
