@@ -1,5 +1,8 @@
 import { CheckCircle } from "lucide-react";
 import { useState, useEffect } from "react";
+import SmartGate from "../../assets/images/smart-gate.jpg";
+import SmartBin from "../../assets/images/smart-bin.jpg";
+import SmartTraffic from "../../assets/images/smart-traffic.jpg";
 
 function ProgressBar({
   targetProgress,
@@ -27,7 +30,7 @@ function ProgressBar({
         });
       }, 20);
 
-      return () => clearInterval(interval); // Cleanup
+      return () => clearInterval(interval);
     }
   }, [isVisible, targetProgress]);
 
@@ -50,25 +53,21 @@ function ProgressBar({
 
 const products = [
   {
-    name: "SmartGate",
+    name: "Smart Gate",
     description: "IoT security system.",
-    image:
-      "https://images.unsplash.com/photo-1559669797-7c99e15e2b0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmFycmllcnxlbnwwfHwwfHx8MA%3D%3D",
+    image: SmartGate,
     progress: 90,
   },
   {
-    name: "RoboArm",
-    description:
-      "Educational robotic arm. This is a longer description to test the line clamping functionality. It should be truncated after two lines.",
-    image:
-      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cm9ib3QlMjBhcm18ZW58MHx8MHx8fDA%3D",
+    name: "Smart Bin",
+    description: "IoT waste management system.",
+    image: SmartBin,
     progress: 45,
   },
   {
-    name: "SmartTraffic",
+    name: "Smart Traffic",
     description: "IoT traffic lighting system.",
-    image:
-      "https://images.unsplash.com/photo-1584649525122-8d6895492a5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhZmZpYyUyMGxpZ2h0fGVufDB8fDB8fHww",
+    image: SmartTraffic,
     progress: 70,
   },
 ];

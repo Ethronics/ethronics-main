@@ -1,4 +1,4 @@
-import { CallToAction } from "../components/home/Cta";
+import { CallToAction } from "../components/common/Cta";
 import { Features } from "../components/home/Features";
 import { Gallery } from "../components/home/Gallery";
 import { Hero } from "../components/common/Hero";
@@ -73,7 +73,21 @@ export function Home() {
       {/* <Projects/> */}
       <Partnerships />
       <Gallery />
-      <CallToAction />
+      <CallToAction
+        title="Join the Ethronics Revolution"
+        description="Be part of a bold movement to transform technology from Ethiopia. Whether you’re a student, researcher, or innovator, Ethronics offers you a chance to shape the future of academics, R&D, and manufacturing—starting today."
+        buttons={[
+          {
+            text: "Get in Touch",
+            href: "/contact",
+            primary: true,
+          },
+          {
+            text: "Explore Opportunities",
+            href: "/academics",
+          },
+        ]}
+      />
     </div>
   );
 }

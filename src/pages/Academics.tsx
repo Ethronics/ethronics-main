@@ -6,8 +6,9 @@ import { AdmissionsSection } from "../components/academics/AdmissionsSection";
 import { ProgramsSection } from "../components/academics/ProgramsSection";
 import { FacultyResearchSection } from "../components/academics/ResearchSection";
 import { VisionSection } from "../components/academics/VisionSection";
-import { CallToAction } from "../components/academics/Cta";
+import { CallToAction } from "../components/common/Cta";
 import { programData } from "../data/program";
+
 
 export const Academics: React.FC = () => {
   const heroSlides = [
@@ -32,7 +33,7 @@ export const Academics: React.FC = () => {
       image:
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
     },
-    
+
     {
       title: "Empowering Tomorrow's Innovators Today",
       description:
@@ -60,7 +61,21 @@ export const Academics: React.FC = () => {
       <AdmissionsSection />
       <FacultyResearchSection />
       {/* <PartnershipsSection /> */}
-      <CallToAction />
+      <CallToAction
+        title="Ready to Shape Ethiopia’s Technological Destiny?"
+        description="We’re building a movement. Accreditation is underway, and soon, we’ll open our doors to students ready to lead Ethiopia into a new era of innovation."
+        buttons={[
+          {
+            text: "Join Waitlist",
+            onClick: () => console.log("Join waitlist clicked"), // Replace with actual logic
+            primary: true,
+          },
+          {
+            text: "Contact Us",
+            href: "/contact",
+          },
+        ]}
+      />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Hero } from "../components/common/Hero";
 import { researchFeatures, projects } from "../data/homeData";
-import { CallToAction } from "../components/home/Cta";
+import { CallToAction } from "../components/common/Cta";
 import { WeveGotItSection } from "../components/research/WeHaveGotIt";
 
 interface ResearchSlide {
@@ -76,8 +76,8 @@ export const ResearchAndDevelopment: React.FC = () => {
       </section>
       <WeveGotItSection/>
       {/* Collaboration Opportunities */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Collaborate With Us
           </h2>
@@ -97,7 +97,7 @@ export const ResearchAndDevelopment: React.FC = () => {
                 and more. Share your expertise and innovate with us.
               </p>
               <a
-                href="/research/join"
+                href="/contact"
                 className="inline-block px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
               >
                 Get Involved
@@ -122,7 +122,21 @@ export const ResearchAndDevelopment: React.FC = () => {
         </div>
       </section>
 
-      <CallToAction />
+      <CallToAction
+          title="Ready to Push the Boundaries of Research?"
+          description="Join us in creating the future. At Ethronics, we’re solving big problems with smart technology. Work with our team to explore robotics, AI, and more—starting from Ethiopia."
+          buttons={[
+            {
+              text: "Join Our Research",
+              href: "/contact",
+              primary: true,
+            },
+            {
+              text: "Contact Us",
+              href: "/contact",
+            },
+          ]}
+        />
     </div>
   );
 };

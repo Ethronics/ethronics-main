@@ -5,11 +5,11 @@ import {
   Lightbulb,
   PenTool as Tool,
 } from "lucide-react";
-import { CallToAction } from "../components/manufacturing/CallToAction";
+import { CallToAction } from "../components/common/Cta";
 // import { Capabilities } from "../components/manufacturing/Capabilities";
 // import { ProcessOverview } from "../components/manufacturing/ProcessOverview";
 import { Products } from "../components/manufacturing/Products";
-import { QualityAssurance } from "../components/manufacturing/QualityAssurance";
+// import { QualityAssurance } from "../components/manufacturing/QualityAssurance";
 import { Sustainability } from "../components/manufacturing/Sustainability";
 import { Hero } from "../components/common/Hero";
 import { useEffect } from "react";
@@ -185,7 +185,17 @@ export function Manufacturing() {
       <Products />
       {/* <QualityAssurance /> */}
       <Sustainability />
-      <CallToAction />
+      <CallToAction
+    title="Ready to Innovate?"
+    description="Contact us to explore our manufacturing solutions."
+    buttons={[
+      {
+        text: "Get in Touch",
+        href: "/contact",
+        primary: true,
+      },
+    ]}
+  />
     </div>
   );
 }

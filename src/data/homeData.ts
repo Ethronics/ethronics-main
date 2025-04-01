@@ -47,27 +47,6 @@ export interface Partnership {
   description: string;
 }
 
-// Slides data with plain strings (JSX will be handled in the component)
-// export const homeSlides: Slide[] = [
-//   {
-//     title: "A Technology That Is Taught, Researched, Made, and Perfected in Ethiopia for the World",
-//     description:
-//       "Ethronics is igniting a technological revolution from the heart of Ethiopia. Through cutting-edge education, pioneering research, and advanced manufacturing, we’re empowering the next generation of innovators to solve global challenges with local ingenuity.",
-//     image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2020&q=80",
-//   },
-//   {
-//     title: "Pioneering the Future of Technology Education in Africa",
-//     description:
-//       "Join us in shaping tomorrow’s technological landscape. Our world-class programs in robotics, AI, and manufacturing blend hands-on learning with innovative research, preparing Ethiopia’s youth to lead on a global stage.",
-//     image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-//   },
-//   {
-//     title: "Building Tomorrow’s Technology Leaders Today",
-//     description:
-//       "At Ethronics, we’re not just teaching technology—we’re creating it. Explore opportunities in robotics, artificial intelligence, and advanced manufacturing, designed to transform Ethiopia into a hub of innovation.",
-//     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-//   },
-// ];
 
 export const homeButtons: HeroButton[] = [
   { text: "Explore Programs", href: "/academics", primary: true },
