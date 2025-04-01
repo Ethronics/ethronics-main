@@ -64,6 +64,34 @@ export const Solutions: React.FC = () => {
         image: "https://media.istockphoto.com/id/2165826700/photo/a-black-graduation-cap-on-a-stack-of-colorful-books.webp?a=1&b=1&s=612x612&w=0&k=20&c=FHZIb_cslZXWvP7P_iN6pOwII8uI0QjtW2HKH82yfLc=",
         action: { text: "Apply Now", href: "/academics/scholarships" },
       },
+      {
+        title: "TVET Programs",
+        description:
+          "Our TVET (Technical and Vocational Education and Training) programs focus on practical skills development in areas like robotics, AI, and manufacturing. These programs are designed to empower individuals with job-ready expertise.",
+        image: "https://images.unsplash.com/photo-1581091870622-1c6d5f6f8002?auto=format&fit=crop&w=400&q=60",
+        action: { text: "Learn More", href: "/academics/tvet-programs" },
+      },
+      {
+        title: "Undergraduate Programs",
+        description:
+          "Our undergraduate programs offer a strong foundation in technology and innovation, preparing students for impactful careers in fields like AI, robotics, and global tech solutions.",
+        image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=400&q=60",
+        action: { text: "Explore Programs", href: "/academics/undergraduate" },
+      },
+      {
+        title: "Postgraduate Studies",
+        description:
+          "Advance your expertise with our postgraduate studies in cutting-edge fields. These programs are tailored for professionals and researchers aiming to lead in innovation and technology.",
+        image: "https://images.unsplash.com/photo-1584697964154-3c1a4c2a5c8b?auto=format&fit=crop&w=400&q=60",
+        action: { text: "Apply Now", href: "/academics/postgraduate" },
+      },
+      {
+        title: "Professional Training",
+        description:
+          "Our professional training programs are designed for individuals and organizations seeking to upskill in areas like AI, robotics, and smart manufacturing. Stay ahead in the fast-evolving tech landscape.",
+        image: "https://images.unsplash.com/photo-1596495577886-d920f1a5015e?auto=format&fit=crop&w=400&q=60",
+        action: { text: "Get Trained", href: "/academics/training" },
+      },
     ],
     manufacturing: [
       {
@@ -156,7 +184,7 @@ export const Solutions: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Solutions We’re Building
+            Solutions We’re Building and Providing
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Ethronics is pioneering transformative solutions across education, manufacturing, and global technology. With a focus on innovation and impact, we’re creating tools and programs that empower Ethiopia and resonate worldwide.

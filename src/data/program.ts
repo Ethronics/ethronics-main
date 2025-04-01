@@ -133,9 +133,9 @@ export const programData: ProgramLevel[] = [
     ],
   },
   {
-    level: "Masters",
+    level: "Postgrad",
     icon: React.createElement(Brain, { className: "w-8 h-8" }),
-    description: "Advanced specialization in technology",
+    description: "Advanced specialization and research in technology",
     programs: [
       {
         name: "MSc in Artificial Intelligence",
@@ -169,13 +169,6 @@ export const programData: ProgramLevel[] = [
           ctaText: "Lead the data revolution—apply now!",
         },
       },
-    ],
-  },
-  {
-    level: "PhD",
-    icon: React.createElement(Beaker, { className: "w-8 h-8" }),
-    description: "Research driving tech innovation",
-    programs: [
       {
         name: "PhD in Robotics & AI",
         duration: "4 years",
