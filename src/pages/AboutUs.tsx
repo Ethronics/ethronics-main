@@ -4,8 +4,6 @@ import { CallToAction } from "../components/common/Cta";
 import { LeaderCard, Leader } from "../components/supplementary/LeaderCard";
 import { Front, FrontCard } from "../components/supplementary/FrontCard";
 
-// Interface for each front
-
 const fronts: Front[] = [
   {
     title: "Academics",
