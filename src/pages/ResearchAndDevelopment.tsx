@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Hero } from "../components/common/Hero";
 import { researchFeatures, projects } from "../data/homeData";
 import { CallToAction } from "../components/home/Cta";
+import { WeveGotItSection } from "../components/research/WeHaveGotIt";
 
 interface ResearchSlide {
   title: string;
@@ -73,6 +74,7 @@ export const ResearchAndDevelopment: React.FC = () => {
           </div>
         </div>
       </section>
+      <WeveGotItSection/>
       {/* Collaboration Opportunities */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
