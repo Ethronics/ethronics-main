@@ -4,7 +4,6 @@ import { Send } from "lucide-react";
 interface ContactFormData {
   name: string;
   email: string;
-  subject: string;
   message: string;
   category: string;
 }
@@ -34,16 +33,27 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => 
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
-    subject: "",
     message: "",
     category: "general",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    onSubmitSuccess();
-    setFormData({ name: "", email: "", subject: "", message: "", category: "general" });
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/contact/submit/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        onSubmitSuccess();
+        setFormData({ name: "", email: "", message: "", category: "general" });
+      } else {
+        console.error('Submission failed:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -132,20 +142,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => 
               required
             />
           </div>
-        </div>
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Subject
-          </label>
-          {/* <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-900 dark:text-white"
-            required
-          /> */}
         </div>
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
