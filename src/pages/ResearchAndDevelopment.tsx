@@ -37,7 +37,7 @@ export const ResearchAndDevelopment: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Hero slides={researchSlides} buttons={researchButtons} />
 
       {/* Research Focus Areas */}
@@ -73,60 +73,6 @@ export const ResearchAndDevelopment: React.FC = () => {
           </div>
         </div>
       </section>
-      {/* Current Projects */}
-      {/* <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Current R&D Projects
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our ongoing projects showcase the practical applications of our
-              research. From smart manufacturing to urban solutions, these
-              initiatives highlight Ethronics’ role in shaping the future.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="bg-gray-200 dark:bg-gray-700 h-2 rounded-full mb-2">
-                    <div
-                      className="bg-purple-600 h-2 rounded-full"
-                      style={{ width: `${project.progress}%` }}
-                    />
-                  </div>
-                  <p className="text-sm text-purple-600 dark:text-purple-400">
-                    {project.progress}% Complete
-                  </p>
-                  <a
-                    href={`/research/projects/${project.title
-                      .toLowerCase()
-                      .replace(" ", "-")}`}
-                    className="mt-4 inline-block px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
-                  >
-                    Learn More
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
       {/* Collaboration Opportunities */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -5,6 +5,7 @@ import Memorandum2 from "../../assets/images/agreed_memorandum.jpg";
 import Cto from "../../assets/images/joe_conference.jpg";
 import Ceo from "../../assets/images/CEO.jpg";
 import CtoPresentation from "../../assets/images/joe_presentation.png";
+
 interface GalleryItem {
   title: string;
   description: string;
@@ -12,20 +13,19 @@ interface GalleryItem {
   category: "education" | "research" | "manufacturing";
 }
 
-
 export const Gallery: React.FC = () => {
   const galleryItems: GalleryItem[] = [
     {
       title: "Memorandum with Arsi University",
       description:
-        "Ethronics signed a memorandum of understanding with Arsi University to collaborate on innovative research and educational programs.",
+        "Ethronics signed a memorandum of understanding with Arsi University to collaborate on innovative research and educational programs. This partnership aims to foster advancements in technology and education, bringing together academic expertise and industry innovation to create impactful solutions. Through this collaboration, we are committed to developing new curricula, conducting joint research projects, and providing students with hands-on opportunities to engage with cutting-edge technologies like robotics and AI.",
       images: [Memorandum, Memorandum2],
       category: "education",
     },
     {
       title: "Robotics in AI: Redefining Human Potential",
       description:
-        "Our CEO presented groundbreaking insights on how robotics in AI is reshaping the future and redefining human potential at the conference.",
+        "Our CEO presented groundbreaking insights on how robotics in AI is reshaping the future and redefining human potential at the conference. The presentation highlighted the integration of intelligent systems into everyday life, exploring how these technologies can enhance productivity, creativity, and problem-solving across industries. The discussion also covered the ethical implications and the need for inclusive innovation to ensure these advancements benefit society as a whole.",
       images: [
         Ceo,
         "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80",
@@ -35,17 +35,15 @@ export const Gallery: React.FC = () => {
     {
       title: "Artificial Perception: Exploring the Senses of Sight and Perception",
       description:
-        "Our CTO shared innovative research on artificial perception, delving into the senses of sight and perception at the conference.",
-      images: [
-        Cto,
-        CtoPresentation,
-      ],
+        "Our CTO shared innovative research on artificial perception, delving into the senses of sight and perception at the conference. This research explores how machines can mimic human sensory capabilities, with a focus on visual processing and cognitive understanding. The presentation included detailed case studies, technical demonstrations, and future applications in fields like autonomous systems, healthcare, and urban planning, showcasing Ethiopia’s growing role in global tech innovation.",
+      images: [Cto, CtoPresentation],
       category: "research",
     },
   ];
 
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false); // New state for text expansion
   const cardWidth = 320;
   const visibleCards = Math.floor(window.innerWidth / cardWidth) || 1;
 
@@ -191,7 +189,23 @@ export const Gallery: React.FC = () => {
                 />
               ))}
             </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">{selectedItem.description}</p>
+            <div className="mb-4">
+              <p
+                className={`text-gray-600 dark:text-gray-300 transition-all duration-300 ${
+                  isExpanded ? "max-h-none" : "max-h-20 overflow-hidden"
+                }`}
+              >
+                {selectedItem.description}
+              </p>
+              {selectedItem.description.length > 150 && ( // Show button if text is long
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="mt-2 text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-medium text-right float-right"
+                >
+                  {isExpanded ? "Show Less" : "Show More"}
+                </button>
+              )}
+            </div>
             <span className="inline-block bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full">
               {selectedItem.category.charAt(0).toUpperCase() + selectedItem.category.slice(1)}
             </span>

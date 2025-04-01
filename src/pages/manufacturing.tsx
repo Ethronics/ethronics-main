@@ -135,7 +135,7 @@ export function Manufacturing() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 ">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 ">
       <Hero slides={manufacturingSlides} buttons={manufacturingButtons} />
       {/* <Capabilities /> */}
       <div className="bg-gray-900 p-24">

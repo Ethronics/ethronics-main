@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Solution } from "../../data/homeData";
-import Tvet from "../../assets/images/tvet.jpg"; 
+import Tvet from "../../assets/images/tvet.jpg";
 import Undergrad from "../../assets/images/undergrad.jpg";
 import Postgrad from "../../assets/images/postgrad.jpg";
 import Training from "../../assets/images/training.jpg";
@@ -9,6 +9,7 @@ import Bootcamp from "../../assets/images/bootcamp.jpg";
 import AICurriculum from "../../assets/images/ai-curriculum.jpg";
 import Mentor from "../../assets/images/mentor.jpg";
 import Scholarship from "../../assets/images/scholarship.jpg";
+
 interface ScrollPositions {
   education: number;
   manufacturing: number;
@@ -22,7 +23,7 @@ export const Solutions: React.FC = () => {
     globalTech: 0,
   });
 
-  const cardWidth = 384; // Increased from 288px to 384px (w-96 in Tailwind) for larger cards
+  const cardWidth = 384; // Width of each card
   const scrollStep = cardWidth;
 
   const scrollLeft = (section: keyof ScrollPositions) => {
@@ -33,14 +34,13 @@ export const Solutions: React.FC = () => {
   };
 
   const scrollRight = (section: keyof ScrollPositions, maxCards: number) => {
-    const maxScroll = -(maxCards - 1) * scrollStep; // Adjusted to show 1 card at a time for larger screens
+    const maxScroll = -(maxCards - 1) * scrollStep;
     setScrollPositions((prev) => ({
       ...prev,
       [section]: Math.max(prev[section] - scrollStep, maxScroll),
     }));
   };
 
-  // Expanded solutions data with more text and actions
   const enhancedSolutionsData = {
     education: [
       {
@@ -188,7 +188,7 @@ export const Solutions: React.FC = () => {
 
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900 px-8">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Solutions We’re Building and Providing
@@ -199,74 +199,73 @@ export const Solutions: React.FC = () => {
         </div>
 
         {sections.map((section) => (
-          <div key={section.key} className="mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="md:col-span-1 flex items-center">
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+          <div key={section.key} className="mb-16 relative">
+            <button
+              onClick={() => scrollLeft(section.key as keyof ScrollPositions)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 z-10 md:-left-4"
+              disabled={scrollPositions[section.key as keyof ScrollPositions] === 0}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <div className="overflow-x-hidden">
+              <div
+                className="flex gap-6 transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: `translateX(${scrollPositions[section.key as keyof ScrollPositions]}px)`,
+                  minWidth: "max-content",
+                }}
+              >
+                {/* Section Title and Description with distinct styling */}
+                <div className="w-80 md:w-96 flex-shrink-0 p-6 flex flex-col justify-center">
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                     {section.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">{section.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                    {section.description}
+                  </p>
                 </div>
-              </div>
-              <div className="md:col-span-2 relative">
-                <button
-                  onClick={() => scrollLeft(section.key as keyof ScrollPositions)}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 z-10 md:-left-4"
-                  disabled={scrollPositions[section.key as keyof ScrollPositions] === 0}
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <div className="overflow-x-hidden">
+
+                {/* Solution Cards */}
+                {section.solutions.map((solution: Solution & { action?: { text: string; href: string } }, index) => (
                   <div
-                    className="flex gap-6 transition-transform duration-300 ease-in-out"
-                    style={{
-                      transform: `translateX(${scrollPositions[section.key as keyof ScrollPositions]}px)`,
-                      minWidth: "max-content",
-                    }}
+                    key={index}
+                    className="w-80 md:w-96 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
                   >
-                    {section.solutions.map((solution: Solution & { action?: { text: string; href: string } }, index) => (
-                      <div
-                        key={index}
-                        className="w-80 md:w-96 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
-                      >
-                        <img
-                          src={solution.image}
-                          alt={solution.title}
-                          className="w-full h-56 object-cover"
-                        />
-                        <div className="p-6">
-                          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                            {solution.title}
-                          </h4>
-                          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                            {solution.description}
-                          </p>
-                          {solution.action && (
-                            <a
-                              href={solution.action.href}
-                              className="inline-block px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
-                            >
-                              {solution.action.text}
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    ))}
+                    <img
+                      src={solution.image}
+                      alt={solution.title}
+                      className="w-full h-56 object-cover"
+                    />
+                    <div className="p-6">
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                        {solution.title}
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                        {solution.description}
+                      </p>
+                      {solution.action && (
+                        <a
+                          href={solution.action.href}
+                          className="inline-block px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
+                        >
+                          {solution.action.text}
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <button
-                  onClick={() => scrollRight(section.key as keyof ScrollPositions, section.solutions.length)}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 z-10 md:-right-4"
-                  disabled={
-                    scrollPositions[section.key as keyof ScrollPositions] <=
-                    -(section.solutions.length - 1) * scrollStep
-                  }
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
+                ))}
               </div>
             </div>
+            <button
+              onClick={() => scrollRight(section.key as keyof ScrollPositions, section.solutions.length + 1)} // +1 for the title/description
+              className="absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 z-10 md:-right-4"
+              disabled={
+                scrollPositions[section.key as keyof ScrollPositions] <=
+                -(section.solutions.length) * scrollStep
+              }
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
           </div>
         ))}
       </div>
