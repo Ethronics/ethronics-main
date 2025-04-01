@@ -43,7 +43,7 @@ export function Navbar() {
           </div>
 
           {/* Navigation Container (Main + Supplementary) */}
-          <div className="ml-48"> {/* Adjust this margin to align with "Home" */}
+          <div className="ml-48"> 
             {/* Main Navigation Row */}
             <div className="flex justify-end items-center space-x-8 h-10">
               {navItems.map((item) => (
