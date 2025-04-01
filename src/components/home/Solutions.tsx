@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Solution } from "../../data/homeData";
 import Tvet from "../../assets/images/tvet.jpg"; 
-import Undergrad from "../../assets/images/undergrad.jpg"; 
+import Undergrad from "../../assets/images/undergrad.jpg";
+import Postgrad from "../../assets/images/postgrad.jpg";
+import Training from "../../assets/images/training.jpg";
+import Bootcamp from "../../assets/images/bootcamp.jpg";
 interface ScrollPositions {
   education: number;
   manufacturing: number;
@@ -41,7 +44,7 @@ export const Solutions: React.FC = () => {
         title: "Robotics Bootcamp",
         description:
           "Dive into the world of automation with our intensive Robotics Bootcamp. This hands-on program equips students with practical skills in designing, programming, and operating robotic systems, preparing them for careers in Ethiopia’s growing tech sector.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=60",
+        image: Bootcamp,
         action: { text: "Join Now", href: "/contact" },
       },
       {
@@ -83,14 +86,14 @@ export const Solutions: React.FC = () => {
         title: "Postgraduate Studies",
         description:
           "Advance your expertise with our postgraduate studies in cutting-edge fields. These programs are tailored for professionals and researchers aiming to lead in innovation and technology.",
-        image: "https://images.unsplash.com/photo-1584697964154-3c1a4c2a5c8b?auto=format&fit=crop&w=400&q=60",
+        image: Postgrad,
         action: { text: "Apply Now", href: "/academics" },
       },
       {
         title: "Professional Training",
         description:
           "Our professional training programs are designed for individuals and organizations seeking to upskill in areas like AI, robotics, and smart manufacturing. Stay ahead in the fast-evolving tech landscape.",
-        image: "https://images.unsplash.com/photo-1596495577886-d920f1a5015e?auto=format&fit=crop&w=400&q=60",
+        image: Training,
         action: { text: "Get Trained", href: "/academics" },
       },
     ],

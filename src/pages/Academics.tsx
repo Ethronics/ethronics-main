@@ -6,7 +6,7 @@ import { AdmissionsSection } from "../components/academics/AdmissionsSection";
 import { ProgramsSection } from "../components/academics/ProgramsSection";
 import { FacultyResearchSection } from "../components/academics/ResearchSection";
 import { VisionSection } from "../components/academics/VisionSection";
-import { CallToAction } from "../components/home/Cta";
+import { CallToAction } from "../components/academics/Cta";
 import { programData } from "../data/program";
 
 export const Academics: React.FC = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 
 export const CallToAction: React.FC = () => (
-  <section className="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+  <section className="py-16 bg-gradient-to-br from-blue-900/90 via-gray-900/80 to-blue-900/90 text-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Shape Ethiopia’s Technological Destiny?</h2>
       <p className="text-lg text-purple-100 mb-8 max-w-3xl mx-auto">

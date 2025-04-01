@@ -257,6 +257,22 @@ export const programData: ProgramLevel[] = [
           ctaText: "Become a digital marketing expert—enroll now!",
         },
       },
+      {
+        name: "Cybersecurity Essentials",
+        duration: "3 months",
+        description: "Foundational training in cybersecurity principles",
+        highlights: ["Threat Analysis", "Network Security Basics", "Incident Response"],
+        details: {
+          overview:
+            "This program introduces you to the fundamentals of cybersecurity, including threat analysis, network security, and incident response. Gain the skills to protect digital assets and respond to security incidents.",
+          outcomes: [
+            "Understand the basics of cybersecurity threats and defenses.",
+            "Implement foundational network security measures.",
+            "Prepare for entry-level roles in cybersecurity.",
+          ],
+          ctaText: "Secure your future in cybersecurity—enroll today!",
+        },
+      },
     ],
   },
 ];
