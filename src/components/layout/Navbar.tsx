@@ -17,8 +17,9 @@ const navItems: NavItem[] = [
 const supplementaryItems: NavItem[] = [
   { title: "Contact", href: "/contact" },
   { title: "Library", href: "#" },
-  { title: "Events", href: "#" },
+  { title: "News & Events", href: "#" },
   { title: "Blog", href: "#" },
+  { title: "About Us", href: "/about" },
 ];
 
 export function Navbar() {
@@ -42,7 +43,6 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Navigation Container (Main + Supplementary) */}
           <div className="ml-48"> 
             {/* Main Navigation Row */}
             <div className="flex justify-end items-center space-x-8 h-10">

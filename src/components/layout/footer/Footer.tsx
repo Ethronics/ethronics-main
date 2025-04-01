@@ -1,5 +1,5 @@
-import { NavItem } from "../../types";
-import Ethronics from "../../assets/ethronics.png";
+import { NavItem } from "../../../types";
+import Ethronics from "../../../assets/ethronics.png";
 
 const navItems: NavItem[] = [
   { title: "Home", href: "/" },
@@ -10,16 +10,16 @@ const navItems: NavItem[] = [
 
 const additionalLinks: NavItem[] = [
   { title: "About Us", href: "/about" },
-  { title: "Careers", href: "/careers" },
-  { title: "News", href: "/news" },
+  { title: "Careers", href: "#" },
+  { title: "News", href: "#" },
   { title: "Contact", href: "/contact" },
 ];
 
 const resourceLinks: NavItem[] = [
-  { title: "Blog", href: "/blog" },
-  { title: "Resources", href: "/resources" },
-  { title: "Support", href: "/support" },
-  { title: "FAQ", href: "/faq" },
+  { title: "Blog", href: "#" },
+  { title: "Resources", href: "#" },
+  { title: "Support", href: "#" },
+  { title: "FAQ", href: "#" },
 ];
 
 export function Footer() {

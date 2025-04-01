@@ -2,7 +2,7 @@ import { useState, useEffect, JSX } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Slide {
-  title: JSX.Element | string; // Supports gradient text or plain strings
+  title: JSX.Element | string;
   description: string;
   image: string;
 }
@@ -10,13 +10,13 @@ interface Slide {
 interface HeroButton {
   text: string;
   href: string;
-  primary?: boolean; // Determines styling (e.g., purple button vs. transparent)
+  primary?: boolean; 
 }
 
 interface HeroProps {
   slides: Slide[];
-  buttons?: HeroButton[]; // Optional array of buttons
-  className?: string; // Additional custom styling
+  buttons?: HeroButton[]; 
+  className?: string; 
 }
 
 export function Hero({ slides, buttons = [], className = "" }: HeroProps) {
