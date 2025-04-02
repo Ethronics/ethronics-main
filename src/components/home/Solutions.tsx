@@ -9,6 +9,7 @@ import Bootcamp from "../../assets/images/bootcamp.jpg";
 import AICurriculum from "../../assets/images/ai-curriculum.jpg";
 import Mentor from "../../assets/images/mentor.jpg";
 import Scholarship from "../../assets/images/scholarship.jpg";
+import SmartGate from "../../assets/images/smart-gate.jpg";
 
 interface ScrollPositions {
   education: number;
@@ -102,25 +103,25 @@ export const Solutions: React.FC = () => {
     ],
     manufacturing: [
       {
+        title: "Gate Barrier Tech",
+        description:
+        "Enhance facility security with our Gate Barrier Technology. This automated system combines advanced sensors and robust design to provide reliable access control, ideal for industrial sites, campuses, and urban infrastructure projects.",
+        image: SmartGate,
+        action: { text: "Request Demo", href: "/contact" },
+      },
+      // {
+      //   title: "Adaptive Robotics",
+      //   description:
+      //   "Our Adaptive Robotics solutions bring flexibility to modern manufacturing. These intelligent robots adjust to varying tasks and environments, boosting productivity and innovation in Ethiopia’s factories and beyond.",
+      //   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=60",
+      //   action: { text: "See in Action", href: "/contact" },
+      // },
+      {
         title: "Smart Factory Systems",
         description:
           "Revolutionize production with our IoT-enabled Smart Factory Systems. These solutions integrate sensors, data analytics, and automation to optimize efficiency, reduce waste, and enhance manufacturing precision—paving the way for Ethiopia’s industrial future.",
         image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=400&q=60",
         action: { text: "Learn More", href: "/manufacturing" },
-      },
-      {
-        title: "Gate Barrier Tech",
-        description:
-          "Enhance facility security with our Gate Barrier Technology. This automated system combines advanced sensors and robust design to provide reliable access control, ideal for industrial sites, campuses, and urban infrastructure projects.",
-        image: "https://images.unsplash.com/photo-1588362951121-3ee319b018b2?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Request Demo", href: "/contact" },
-      },
-      {
-        title: "Adaptive Robotics",
-        description:
-          "Our Adaptive Robotics solutions bring flexibility to modern manufacturing. These intelligent robots adjust to varying tasks and environments, boosting productivity and innovation in Ethiopia’s factories and beyond.",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=60",
-        action: { text: "See in Action", href: "/contact" },
       },
     ],
     globalTech: [

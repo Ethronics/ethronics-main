@@ -9,7 +9,7 @@ interface Feature {
 
 const features: Feature[] = [
   { icon: <Award className="h-6 w-6" />, title: "Excellence in Education", description: "Our curriculum is designed by global experts to meet international standards while addressing Ethiopia’s unique needs." },
-  { icon: <MapPin className="h-6 w-6" />, title: "Strategic Location", description: "Located in Adama, our future campus will connect you to Ethiopia’s growing tech ecosystem." },
+  { icon: <MapPin className="h-6 w-6" />, title: "Strategic Location", description: "Our campus is positioned to connect you to Ethiopia’s growing tech ecosystem." },
   { icon: <Globe className="h-6 w-6" />, title: "Global Perspective", description: "Partnerships with leading universities worldwide bring a global outlook to your education." },
   { icon: <Briefcase className="h-6 w-6" />, title: "Career Readiness", description: "Our programs equip you with skills that employers and innovators demand." },
 ];

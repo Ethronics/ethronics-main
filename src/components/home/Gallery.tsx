@@ -5,7 +5,8 @@ import Memorandum2 from "../../assets/images/agreed_memorandum.jpg";
 import Cto from "../../assets/images/joe_conference.jpg";
 import Ceo from "../../assets/images/CEO.jpg";
 import CtoPresentation from "../../assets/images/joe_presentation.png";
-
+import Highschool from "../../assets/images/highschool_certificate.jpg"; 
+import kids from "../../assets/images/kids_certificate.jpg"; 
 interface GalleryItem {
   title: string;
   description: string;
@@ -38,6 +39,13 @@ export const Gallery: React.FC = () => {
         "Our CTO shared innovative research on artificial perception, delving into the senses of sight and perception at the conference. This research explores how machines can mimic human sensory capabilities, with a focus on visual processing and cognitive understanding. The presentation included detailed case studies, technical demonstrations, and future applications in fields like autonomous systems, healthcare, and urban planning, showcasing Ethiopia’s growing role in global tech innovation.",
       images: [Cto, CtoPresentation],
       category: "research",
+    },
+    {
+      title: "Empowering Future Innovators, summer camp",
+      description:
+        "Ethronics is committed to empowering future innovators through hands-on education and training. We believe in nurturing creativity, critical thinking, and problem-solving skills in students. Our programs are designed to inspire the next generation of leaders in technology, equipping them with the knowledge and tools they need to thrive in a rapidly evolving world. By fostering a culture of innovation and collaboration, we aim to create a brighter future for Ethiopia and beyond.",
+      images: [Highschool, kids],
+      category: "education",
     },
   ];
 

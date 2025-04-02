@@ -133,7 +133,9 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://et.linkedin.com/company/ethronics"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400"
                 >
                   {/* LinkedIn Icon */}
@@ -142,7 +144,9 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/ethronics"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400"
                 >
                   {/* GitHub Icon */}

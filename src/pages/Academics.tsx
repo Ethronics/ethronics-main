@@ -15,14 +15,13 @@ export const Academics: React.FC = () => {
     {
       title: (
         <>
-          Pioneering
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-            Ethiopia's Tech Future
+          Learn, Create, Inspire
           </span>
         </>
       ),
       description:
-        "We’re on the cusp of launching a transformative educational experience in Ethiopia, blending global expertise with local innovation. Accreditation is in progress—be among the first to shape the future.",
+        "Discover a transformative educational journey where learning fuels creativity and inspiration drives innovation. Join us to shape the future of technology in Ethiopia.",
       image:
         "https://images.unsplash.com/photo-1572310608276-9134d42f127f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dGVjaCUyMGlubm92YXRpb258ZW58MHx8MHx8fDA%3D",
     },
@@ -67,7 +66,7 @@ export const Academics: React.FC = () => {
         buttons={[
           {
             text: "Join Waitlist",
-            onClick: () => console.log("Join waitlist clicked"), // Replace with actual logic
+            href: '/contact', 
             primary: true,
           },
           {
