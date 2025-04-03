@@ -61,7 +61,7 @@ const leaders: Leader[] = [
 
 export const AboutUs: React.FC = () => {
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to top on page load
+    window.scrollTo(0, 0); 
   }, []);
 
   return (

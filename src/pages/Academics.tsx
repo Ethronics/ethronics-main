@@ -15,8 +15,11 @@ export const Academics: React.FC = () => {
     {
       title: (
         <>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-          Learn, Create, Inspire
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-400">
+            Learn, Cre
+          </span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-red-400">
+          ate, Inspire
           </span>
         </>
       ),

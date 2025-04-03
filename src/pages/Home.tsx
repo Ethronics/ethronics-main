@@ -11,11 +11,11 @@ const homeSlides = [
   {
     title: (
       <>
-        <span className="block">A technology that is </span>
-        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+        <span className="block mb-2 text-white">A technology that is </span>
+        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-yellow-400 to-purple-400 mb-2">
           taught, researched, made, and perfected
         </span>
-        <span className="block">in Ethiopia and Applied worldwide</span>
+        <span className="block text-white">in Ethiopia and Applied worldwide</span>
       </>
     ),
     description:
@@ -26,11 +26,11 @@ const homeSlides = [
   {
     title: (
       <>
-        <span className="block">Pioneering the Future of</span>
-        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+        <span className="block mb-2 text-white">Pioneering the Future of</span>
+        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-yellow-400 to-purple-400 mb-2">
           Technology Education
         </span>
-        <span className="block">in Africa</span>
+        <span className="block text-white">in Africa</span>
       </>
     ),
     description:
@@ -41,11 +41,11 @@ const homeSlides = [
   {
     title: (
       <>
-        <span className="block">Building Tomorrow's</span>
-        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+        <span className="block mb-2 text-white">Building Tomorrow's</span>
+        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-yellow-400 to-purple-400 mb-2">
           Technology Leaders
         </span>
-        <span className="block">Today</span>
+        <span className="block text-white">Today</span>
       </>
     ),
     description:

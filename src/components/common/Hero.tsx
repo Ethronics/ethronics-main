@@ -77,7 +77,7 @@ export function Hero({ slides, buttons = [], className = "" }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl sm:text-6xl font-bold text-white mb-12">{slides[currentSlide].title}</h1>
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-relaxed mb-8">{slides[currentSlide].title}</h1>
         <p className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto">{slides[currentSlide].description}</p>
         {buttons.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

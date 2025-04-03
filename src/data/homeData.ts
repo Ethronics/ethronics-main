@@ -12,7 +12,7 @@ import React from "react";
 
 // Define interfaces without JSX
 export interface Slide {
-  title: string; // Plain string instead of JSX.Element | string
+  title: string; 
   description: string;
   image: string;
 }
@@ -160,7 +160,7 @@ export const solutionsData = {
         "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=300&q=60",
     },
   ],
-  globalTech: [
+  globalTec: [
     {
       title: "Blockchain Platforms",
       description: "Secure transaction systems for industries.",

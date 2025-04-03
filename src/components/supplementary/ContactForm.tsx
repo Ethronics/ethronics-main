@@ -40,7 +40,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/contact/submit/', {
+      const response = await fetch('http://192.168.1.5:8000/api/contact/submit/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -56,6 +56,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => 
     }
   };
 
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));

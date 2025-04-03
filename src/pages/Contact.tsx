@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { ContactForm } from "../components/supplementary/ContactForm";
 import { ContactHero } from "../components/supplementary/ContactHero";
 import { ContactInfo } from "../components/supplementary/ContactInfo";
@@ -6,6 +6,11 @@ import { ContactMap } from "../components/supplementary/ContactMap";
 
 export const Contact: React.FC = () => {
   const [showSuccess, setShowSuccess] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
 
   const handleFormSubmit = () => {
     setShowSuccess(true);

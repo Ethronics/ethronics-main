@@ -179,7 +179,7 @@ export const Solutions: React.FC = () => {
         "Our smart manufacturing solutions integrate IoT, robotics, and data-driven insights to revolutionize production processes. We’re building the foundation for Ethiopia’s industrial transformation with efficiency and innovation at the core.",
     },
     {
-      title: "Global Tech",
+      title: "Research & Development",
       key: "globalTech",
       solutions: enhancedSolutionsData.globalTech,
       description:

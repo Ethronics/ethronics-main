@@ -1,12 +1,14 @@
 import React from "react";
-import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone,} from "lucide-react";
+import { FaLinkedinIn } from "react-icons/fa";
+
 
 export const ContactInfo: React.FC = () => {
   const socialIcons = [
-    { Icon: Facebook, href: "#" },
-    { Icon: Twitter, href: "#" },
-    { Icon: Linkedin, href: "#" },
-    { Icon: Instagram, href: "#" },
+    //{ Icon: Facebook, href: "#" },
+    //{ Icon: Twitter, href: "#" },
+    { Icon: FaLinkedinIn, href: "https://et.linkedin.com/company/ethronics" },
+    //{ Icon: Instagram, href: "#" },
   ];
 
   return (
