@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Solution } from "../../data/homeData";
+import { useRef, useState, useEffect } from 'react'
 import Tvet from "../../assets/images/tvet.jpg";
 import Undergrad from "../../assets/images/undergrad.jpg";
 import Postgrad from "../../assets/images/postgrad.jpg";
@@ -11,265 +9,312 @@ import Mentor from "../../assets/images/mentor.jpg";
 import Scholarship from "../../assets/images/scholarship.jpg";
 import SmartGate from "../../assets/images/smart-gate.jpg";
 
-interface ScrollPositions {
-  education: number;
-  manufacturing: number;
-  globalTech: number;
+interface Solution {
+  title: string
+  description: string
+  image: string
+  action: { text: string; href: string }
 }
 
-export const Solutions: React.FC = () => {
-  const [scrollPositions, setScrollPositions] = useState<ScrollPositions>({
-    education: 0,
-    manufacturing: 0,
-    globalTech: 0,
-  });
+interface Section {
+  title: string
+  key: string
+  solutions: Solution[]
+  description: string
+}
 
-  const cardWidth = 384; // Width of each card
-  const scrollStep = cardWidth;
-
-  const scrollLeft = (section: keyof ScrollPositions) => {
-    setScrollPositions((prev) => ({
-      ...prev,
-      [section]: Math.min(prev[section] + scrollStep, 0),
-    }));
-  };
-
-  const scrollRight = (section: keyof ScrollPositions, maxCards: number) => {
-    const maxScroll = -(maxCards - 1) * scrollStep;
-    setScrollPositions((prev) => ({
-      ...prev,
-      [section]: Math.max(prev[section] - scrollStep, maxScroll),
-    }));
-  };
-
-  const enhancedSolutionsData = {
-    education: [
-      {
-        title: "Robotics Bootcamp",
-        description:
-          "Dive into the world of automation with our intensive Robotics Bootcamp. This hands-on program equips students with practical skills in designing, programming, and operating robotic systems, preparing them for careers in Ethiopia’s growing tech sector.",
-        image: Bootcamp,
-        action: { text: "Join Now", href: "/contact" },
-      },
-      {
-        title: "AI Curriculum",
-        description:
-          "Our comprehensive AI Curriculum blends theory and practice, covering machine learning, neural networks, and data science. Designed for aspiring innovators, this program empowers students to build intelligent solutions that address real-world challenges.",
-        image: AICurriculum,
-        action: { text: "Explore Courses", href: "/academics" },
-      },
-      {
-        title: "Student Mentorship",
-        description:
-          "Through personalized guidance, our mentorship program connects students with industry experts and innovators. We provide the support and insights needed to turn ideas into impactful projects, fostering Ethiopia’s next generation of tech leaders.",
-        image: Mentor,
-        action: { text: "Apply for Mentorship", href: "/contact" },
-      },
-      {
-        title: "Tech Scholarships",
-        description:
-          "We believe talent should never be limited by resources. Our Tech Scholarships provide funding and opportunities for deserving students to pursue cutting-edge education in robotics, AI, and manufacturing, ensuring access to world-class learning.",
-        image: Scholarship,
-        action: { text: "Apply Now", href: "/contact" },
-      },
-      {
-        title: "TVET Programs",
-        description:
-          "Our TVET (Technical and Vocational Education and Training) programs focus on practical skills development in areas like robotics, AI, and manufacturing. These programs are designed to empower individuals with job-ready expertise.",
-        image: Tvet,
-        action: { text: "Learn More", href: "/academics" },
-      },
-      {
-        title: "Undergraduate Programs",
-        description:
-          "Our undergraduate programs offer a strong foundation in technology and innovation, preparing students for impactful careers in fields like AI, robotics, and global tech solutions.",
-        image: Undergrad,
-        action: { text: "Explore Programs", href: "/academics" },
-      },
-      {
-        title: "Postgraduate Studies",
-        description:
-          "Advance your expertise with our postgraduate studies in cutting-edge fields. These programs are tailored for professionals and researchers aiming to lead in innovation and technology.",
-        image: Postgrad,
-        action: { text: "Apply Now", href: "/academics" },
-      },
-      {
-        title: "Professional Training",
-        description:
-          "Our professional training programs are designed for individuals and organizations seeking to upskill in areas like AI, robotics, and smart manufacturing. Stay ahead in the fast-evolving tech landscape.",
-        image: Training,
-        action: { text: "Get Trained", href: "/academics" },
-      },
-    ],
-    manufacturing: [
-      {
-        title: "Gate Barrier Tech",
-        description:
-        "Enhance facility security with our Gate Barrier Technology. This automated system combines advanced sensors and robust design to provide reliable access control, ideal for industrial sites, campuses, and urban infrastructure projects.",
-        image: SmartGate,
-        action: { text: "Request Demo", href: "/contact" },
-      },
-      // {
-      //   title: "Adaptive Robotics",
-      //   description:
-      //   "Our Adaptive Robotics solutions bring flexibility to modern manufacturing. These intelligent robots adjust to varying tasks and environments, boosting productivity and innovation in Ethiopia’s factories and beyond.",
-      //   image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=60",
-      //   action: { text: "See in Action", href: "/contact" },
-      // },
-      {
-        title: "Smart Factory Systems",
-        description:
-          "Revolutionize production with our IoT-enabled Smart Factory Systems. These solutions integrate sensors, data analytics, and automation to optimize efficiency, reduce waste, and enhance manufacturing precision—paving the way for Ethiopia’s industrial future.",
-        image: "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Learn More", href: "/manufacturing" },
-      },
-    ],
-    globalTech: [
-      {
-        title: "Blockchain Platforms",
-        description:
-          "Our Blockchain Platforms offer secure, transparent transaction systems for industries like finance, supply chain, and healthcare. Built with scalability in mind, they empower businesses worldwide with Ethiopian-developed technology.",
-        image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Discover More", href: "/contact" },
-      },
-      {
-        title: "AI Traffic Control",
-        description:
-          "Transform urban mobility with our AI Traffic Control systems. Using real-time data and machine learning, this solution optimizes traffic flow, reduces congestion, and enhances safety—designed in Ethiopia for global cities.",
-        image: "https://images.unsplash.com/photo-1584649525122-8d6895492a5d?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Learn How", href: "/contact" },
-      },
-      {
-        title: "Quantum Research",
-        description:
-          "We’re pushing the boundaries of computing with Quantum Research. This initiative explores next-generation processing power to tackle complex global challenges, positioning Ethiopia as a leader in futuristic tech.",
-        image: "https://images.unsplash.com/photo-1591306208574-969f12f1ebfe?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Join Research", href: "/contact" },
-      },
-      {
-        title: "Cybersecurity Innovations",
-        description:
-          "Protect digital assets with our Cybersecurity Innovations. From advanced encryption to threat detection, we’re building robust frameworks to secure data and systems in an increasingly connected world.",
-        image: "https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Explore Solutions", href: "/contact" },
-      },
-      {
-        title: "Global Tech Partnerships",
-        description:
-          "Through strategic collaborations, our Global Tech Partnerships amplify innovation. We work with international leaders to co-develop projects that deliver measurable impact, rooted in Ethiopian ingenuity.",
-        image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60",
-        action: { text: "Partner With Us", href: "/contact" },
-      },
-    ],
-  };
-
-  const sections = [
+const solutionsData: { [key: string]: Solution[] } = {
+  education: [
     {
-      title: "Education",
-      key: "education",
-      solutions: enhancedSolutionsData.education,
-      description:
-        "We’re crafting educational programs that empower students with cutting-edge skills in robotics, AI, and more. Our goal is to prepare Ethiopia’s youth to lead globally, fostering a new era of technological excellence.",
+      title: 'Robotics Bootcamp',
+      description: 'Dive into automation with hands-on robotics skills.',
+      image: Bootcamp,
+      action: { text: 'Join Now', href: '/contact' },
     },
     {
-      title: "Manufacturing",
-      key: "manufacturing",
-      solutions: enhancedSolutionsData.manufacturing,
-      description:
-        "Our smart manufacturing solutions integrate IoT, robotics, and data-driven insights to revolutionize production processes. We’re building the foundation for Ethiopia’s industrial transformation with efficiency and innovation at the core.",
+      title: 'AI Curriculum',
+      description: 'Learn machine learning and data science.',
+      image: AICurriculum,
+      action: { text: 'Explore Courses', href: '/academics/#programs' },
     },
     {
-      title: "Research & Development",
-      key: "globalTech",
-      solutions: enhancedSolutionsData.globalTech,
-      description:
-        "From blockchain to quantum computing, we’re developing scalable technologies to tackle global challenges. Rooted in Ethiopian innovation, these solutions aim to redefine industries and create worldwide impact.",
+      title: 'Student Mentorship',
+      description: 'Get guidance from industry experts.',
+      image: Mentor,
+      action: { text: 'Apply for Mentorship', href: '/contact' },
     },
-  ];
+    {
+      title: 'Tech Scholarships',
+      description: 'Funding for tech education.',
+      image: Scholarship,
+      action: { text: 'Apply Now', href: '/contact' },
+    },
+    {
+      title: 'TVET Programs',
+      description: 'Practical skills in robotics and AI.',
+      image: Tvet,
+      action: { text: 'Learn More', href: '/academics' },
+    },
+    {
+      title: 'Undergraduate Programs',
+      description: 'Foundation in tech and innovation.',
+      image: Undergrad,
+      action: { text: 'Explore Programs', href: '/academics' },
+    },
+    {
+      title: 'Postgraduate Studies',
+      description: 'Advance your tech expertise.',
+      image: Postgrad,
+      action: { text: 'Apply Now', href: '/academics' },
+    },
+    {
+      title: 'Professional Training',
+      description: 'Upskill in AI and robotics.',
+      image: Training,
+      action: { text: 'Get Trained', href: '/academics' },
+    },
+  ],
+  manufacturing: [
+    {
+      title: 'Gate Barrier Tech',
+      description: 'Automated access control for security.',
+      image: SmartGate,
+      action: { text: 'Request Demo', href: '/contact' },
+    },
+    {
+      title: 'Smart Factory Systems',
+      description: 'IoT-enabled manufacturing solutions.',
+      image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=400&q=60',
+      action: { text: 'Learn More', href: '/manufacturing' },
+    },
+  ],
+  globalTech: [
+    {
+      title: 'Blockchain Platforms',
+      description: 'Secure transaction systems.',
+      image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=400&q=60',
+      action: { text: 'Discover More', href: '/contact' },
+    },
+    {
+      title: 'AI Traffic Control',
+      description: 'Optimize urban traffic flow.',
+      image: 'https://images.unsplash.com/photo-1584649525122-8d6895492a5d?auto=format&fit=crop&w=400&q=60',
+      action: { text: 'Learn How', href: '/contact' },
+    },
+    {
+      title: 'Quantum Research',
+      description: 'Next-gen computing solutions.',
+      image: 'https://images.unsplash.com/photo-1591306208574-969f12f1ebfe?auto=format&fit=crop&w=400&q=60',
+      action: { text: 'Join Research', href: '/contact' },
+    },
+    {
+      title: 'Cybersecurity Innovations',
+      description: 'Advanced data protection.',
+      image: 'https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=400&q=60',
+      action: { text: 'Explore Solutions', href: '/contact' },
+    },
+    {
+      title: 'Global Tech Partnerships',
+      description: 'Collaborate for innovation.',
+      image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60',
+      action: { text: 'Partner With Us', href: '/contact' },
+    },
+  ],
+}
+
+const sections: Section[] = [
+  {
+    title: 'Education',
+    key: 'education',
+    solutions: solutionsData.education,
+    description: 'Empowering Ethiopia’s youth with cutting-edge skills in robotics, AI, and technology to lead globally.',
+  },
+  {
+    title: 'Research & Development',
+    key: 'globalTech',
+    solutions: solutionsData.globalTech,
+    description: 'Developing scalable technologies from Ethiopia to address global challenges.',
+  },
+  {
+    title: 'Manufacturing',
+    key: 'manufacturing',
+    solutions: solutionsData.manufacturing,
+    description: 'Revolutionizing production with smart, IoT-driven solutions for Ethiopia’s industrial future.',
+  }
+]
+
+const Solutions: React.FC = () => {
+  const SolutionCard = ({ solution }: { solution: Solution }) => (
+    <div className="w-72 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 snap-start">
+      <img
+        src={solution.image}
+        alt={solution.title}
+        className="w-full h-48 object-cover rounded-t-xl"
+      />
+      <div className="p-6">
+        <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+          {solution.title}
+        </h4>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          {solution.description}
+        </p>
+        <a
+          href={solution.action.href}
+          className="inline-block px-6 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition-all text-sm font-medium"
+        >
+          {solution.action.text}
+        </a>
+      </div>
+    </div>
+  )
+
+  const Section = ({ section }: { section: Section }) => {
+    const scrollRef = useRef<HTMLDivElement>(null)
+    const [isDragging, setIsDragging] = useState(false)
+    const [startX, setStartX] = useState(0)
+    const [scrollLeft, setScrollLeft] = useState(0)
+    const [visibleIndex, setVisibleIndex] = useState(0)
+
+    const cardWidth = 288 // w-72 (72 * 4px = 288px)
+    const cardsPerView = 1 // Assuming 1 card visible at a time on mobile
+
+    const scrollToIndex = (index: number) => {
+      if (scrollRef.current) {
+        const newScrollLeft = index * cardWidth
+        scrollRef.current.scrollTo({ left: newScrollLeft, behavior: 'smooth' })
+        setScrollLeft(newScrollLeft)
+        setVisibleIndex(index)
+      }
+    }
+
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        const scrollPosition = scrollRef.current.scrollLeft
+        const newIndex = Math.round(scrollPosition / cardWidth)
+        setVisibleIndex(newIndex)
+        setScrollLeft(scrollPosition)
+      }
+    }
+
+    const scrollLeftHandler = () => {
+      const newIndex = Math.max(visibleIndex - 1, 0)
+      scrollToIndex(newIndex)
+    }
+
+    const scrollRightHandler = () => {
+      const newIndex = Math.min(visibleIndex + 1, section.solutions.length - cardsPerView)
+      scrollToIndex(newIndex)
+    }
+
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+      setIsDragging(true)
+      setStartX(e.touches[0].pageX - scrollLeft)
+    }
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+      if (!isDragging) return
+      const x = e.touches[0].pageX
+      const walk = (x - startX) * 2
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft = scrollLeft - walk
+      }
+    }
+
+    const handleTouchEnd = () => {
+      setIsDragging(false)
+      if (scrollRef.current) {
+        setScrollLeft(scrollRef.current.scrollLeft)
+        handleScroll()
+      }
+    }
+
+    useEffect(() => {
+      const scrollElement = scrollRef.current
+      if (scrollElement) {
+        scrollElement.addEventListener('scroll', handleScroll)
+        return () => scrollElement.removeEventListener('scroll', handleScroll)
+      }
+    }, [])
+
+    const progressWidth = ((visibleIndex + cardsPerView) / section.solutions.length) * 100
+
+    return (
+      <div className="mb-12">
+        <div className="px-4 sm:px-6 lg:px-8 mb-6">
+          <h3 className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+            {section.title}
+          </h3>
+          <div className="flex justify-between items-center">
+            <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl">
+              {section.description}
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={scrollLeftHandler}
+                disabled={visibleIndex === 0}
+                className="p-2 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 disabled:opacity-50"
+                aria-label="Previous solution"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={scrollRightHandler}
+                disabled={visibleIndex >= section.solutions.length - cardsPerView}
+                className="p-2 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 disabled:opacity-50"
+                aria-label="Next solution"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 px-4 sm:px-6 lg:px-8 no-scrollbar"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {section.solutions.map((solution, index) => (
+            <SolutionCard key={index} solution={solution} />
+          ))}
+        </div>
+        <div className="flex justify-center mt-4 px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-md h-1 bg-gray-300 dark:bg-gray-600 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-purple-600 transition-all duration-300"
+              style={{ width: `${progressWidth}%` }}
+            ></div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900 px-8">
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Solutions We’re Building and Providing
+            <span className="bg-clip-text text-transparent bg-purple-600">
+              Solutions
+            </span>{' '}
+            We’re Building
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ethronics is pioneering transformative solutions across education, manufacturing, and global technology. With a focus on innovation and impact, we’re creating tools and programs that empower Ethiopia and resonate worldwide.
+            Ethronics is pioneering transformative solutions across education, manufacturing, and global technology, rooted in Ethiopian innovation for worldwide impact.
           </p>
         </div>
-
         {sections.map((section) => (
-          <div key={section.key} className="mb-16 relative">
-            <button
-              onClick={() => scrollLeft(section.key as keyof ScrollPositions)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 z-10 md:-left-4"
-              disabled={scrollPositions[section.key as keyof ScrollPositions] === 0}
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <div className="overflow-x-hidden">
-              <div
-                className="flex gap-6 transition-transform duration-300 ease-in-out"
-                style={{
-                  transform: `translateX(${scrollPositions[section.key as keyof ScrollPositions]}px)`,
-                  minWidth: "max-content",
-                }}
-              >
-                {/* Section Title and Description with distinct styling */}
-                <div className="w-80 md:w-96 flex-shrink-0 p-6 flex flex-col justify-center">
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                    {section.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                    {section.description}
-                  </p>
-                </div>
-
-                {/* Solution Cards */}
-                {section.solutions.map((solution: Solution & { action?: { text: string; href: string } }, index) => (
-                  <div
-                    key={index}
-                    className="w-80 md:w-96 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
-                  >
-                    <img
-                      src={solution.image}
-                      alt={solution.title}
-                      className="w-full h-56 object-cover"
-                    />
-                    <div className="p-6">
-                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                        {solution.title}
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                        {solution.description}
-                      </p>
-                      {solution.action && (
-                        <a
-                          href={solution.action.href}
-                          className="inline-block px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
-                        >
-                          {solution.action.text}
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <button
-              onClick={() => scrollRight(section.key as keyof ScrollPositions, section.solutions.length + 1)} // +1 for the title/description
-              className="absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 z-10 md:-right-4"
-              disabled={
-                scrollPositions[section.key as keyof ScrollPositions] <=
-                -(section.solutions.length) * scrollStep
-              }
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          </div>
+          <Section key={section.key} section={section} />
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
+
+export default Solutions

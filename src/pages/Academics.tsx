@@ -8,6 +8,8 @@ import { FacultyResearchSection } from "../components/academics/ResearchSection"
 import { VisionSection } from "../components/academics/VisionSection";
 import { CallToAction } from "../components/common/Cta";
 import { programData } from "../data/program";
+import Robotics from "../assets/images/robotics.jpg"; 
+import Empowering from "../assets/images/empowering.jpg";
 
 
 export const Academics: React.FC = () => {
@@ -33,7 +35,7 @@ export const Academics: React.FC = () => {
       description:
         "Imagine a place where cutting-edge technology education empowers Ethiopia’s next generation of leaders. That’s our vision, and we’re building it now—join us as we turn ambition into action.",
       image:
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+        Robotics,
     },
 
     {
@@ -41,7 +43,7 @@ export const Academics: React.FC = () => {
       description:
         "At Ethronics, we’re not just teaching technology—we’re creating it. Explore opportunities in robotics, artificial intelligence, and advanced manufacturing, designed to transform Ethiopia into a hub of innovation.",
       image:
-        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2020&q=80",
+      Empowering,
     },
   ];
 

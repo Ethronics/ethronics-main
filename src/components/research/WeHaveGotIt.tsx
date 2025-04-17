@@ -1,6 +1,6 @@
 import React from "react";
 import { Bot, BarChart, Lightbulb, Wrench, Rocket } from "lucide-react";
-import { CallToAction } from "../common/Cta";
+
 
 // Interface for each "Got It" item
 interface GotItItem {

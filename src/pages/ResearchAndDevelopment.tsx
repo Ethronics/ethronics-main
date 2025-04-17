@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Hero } from "../components/common/Hero";
-import { researchFeatures, projects } from "../data/homeData";
+import { researchFeatures } from "../data/homeData";
 import { CallToAction } from "../components/common/Cta";
 import { WeveGotItSection } from "../components/research/WeHaveGotIt";
 

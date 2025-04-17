@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import { ContactForm } from "../components/supplementary/ContactForm";
 import { ContactHero } from "../components/supplementary/ContactHero";
 import { ContactInfo } from "../components/supplementary/ContactInfo";
